@@ -1,0 +1,478 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-08-28T19:17:16.961Z",
+  "startUrl": "https://www.google.com/?zx=1756408620152&no_sw_cr=1",
+  "startTitle": "Google",
+  "metadata": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "extension": "DevTools Recorder v1.0"
+  },
+  "steps": [
+    {
+      "type": "navigate",
+      "timestamp": 0,
+      "url": "https://www.google.com/?zx=1756408620152&no_sw_cr=1",
+      "title": "Google"
+    },
+    {
+      "type": "hover",
+      "timestamp": 611,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "x": 246,
+      "y": 0
+    },
+    {
+      "type": "type",
+      "timestamp": 1421,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "w",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1465,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wi",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1681,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wik",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1874,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wiki",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2480,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wikip",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2618,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wikipe",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2807,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wikiped",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2941,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wikipedi",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3018,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "wikipedia",
+      "inputType": "textarea"
+    },
+    {
+      "type": "keydown",
+      "timestamp": 3206,
+      "key": "Enter",
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ]
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756408627884,
+      "url": "https://www.google.com/search?q=wikipedia&sca_esv=465159d7bf2b0b64&source=hp&ei=K6uwaJnkLp2f0PEPlams6Aw&iflsig=AOw8s4IAAAAAaLC5O1XXQyD6tHtKV_8txjAjULmuNplm&ved=0ahUKEwjZpfL-m66PAxWdDzQIHZUUC80Q4dUDCBA&uact=5&oq=wikipedia&gs_lp=Egdnd3Mtd2l6Igl3aWtpcGVkaWEyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyCBAuGIAEGLEDMggQABiABBixAzIIEAAYgAQYsQMyCxAAGIAEGLEDGIMBMg4QABiABBixAxiDARiKBTIIEAAYgAQYsQNI-g1QAFi8DHAAeACQAQCYATqgAcIDqgEBObgBA8gBAPgBAZgCCaAC3gPCAg4QLhiABBixAxjRAxjHAcICERAuGIAEGLEDGNEDGIMBGMcBwgIIEC4YgAQY1ALCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgIOEC4YgAQYxwEYjgUYrwHCAg0QABiABBixAxhDGIoFwgIHEAAYgAQYCpgDAJIHATmgB7FPsgcBObgH3gPCBwUwLjguMcgHFQ&sclient=gws-wiz",
+      "title": "wikipedia - Google Search"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756408629488,
+      "url": "https://www.wikipedia.org/",
+      "title": "Wikipedia"
+    },
+    {
+      "type": "click",
+      "timestamp": 1756408629880,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchInput"
+        },
+        {
+          "type": "css",
+          "value": "input[name=\"search\"]"
+        },
+        {
+          "type": "css",
+          "value": "#searchInput"
+        }
+      ],
+      "x": 147,
+      "y": 24,
+      "button": "left"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756408630083,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchInput"
+        },
+        {
+          "type": "css",
+          "value": "input[name=\"search\"]"
+        },
+        {
+          "type": "css",
+          "value": "#searchInput"
+        }
+      ],
+      "text": "t",
+      "inputType": "search"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756408630167,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchInput"
+        },
+        {
+          "type": "css",
+          "value": "input[name=\"search\"]"
+        },
+        {
+          "type": "css",
+          "value": "#searchInput"
+        }
+      ],
+      "text": "te",
+      "inputType": "search"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756408630265,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchInput"
+        },
+        {
+          "type": "css",
+          "value": "input[name=\"search\"]"
+        },
+        {
+          "type": "css",
+          "value": "#searchInput"
+        }
+      ],
+      "text": "tes",
+      "inputType": "search"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756408630399,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchInput"
+        },
+        {
+          "type": "css",
+          "value": "input[name=\"search\"]"
+        },
+        {
+          "type": "css",
+          "value": "#searchInput"
+        }
+      ],
+      "text": "test",
+      "inputType": "search"
+    },
+    {
+      "type": "keydown",
+      "timestamp": 1756408631452,
+      "key": "Enter",
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchInput"
+        },
+        {
+          "type": "css",
+          "value": "input[name=\"search\"]"
+        },
+        {
+          "type": "css",
+          "value": "#searchInput"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "timestamp": 1756408631453,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".pure-button.pure-button-primary-progressive"
+        },
+        {
+          "type": "css",
+          "value": "#search-form > fieldset > button"
+        },
+        {
+          "type": "text",
+          "value": "Search"
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "button": "left"
+    }
+  ]
+}

@@ -126,31 +126,90 @@ class ActionRecorder {
   generateSelectors(element) {
     const selectors = [];
 
+    if (!element || !element.tagName) return selectors;
+
     // ID selector (highest priority)
     if (element.id) {
-      selectors.push({ type: 'id', value: `#${element.id}` });
+      selectors.push({ type: 'css', value: `#${this.cssEscape(element.id)}` });
+    }
+
+    // Data-testid selector (very high priority for testing)
+    const testid = element.getAttribute('data-testid');
+    if (testid) {
+      const escaped = this.cssEscape(testid);
+      selectors.push({ type: 'css', value: `[data-testid="${escaped}"]` });
+      selectors.push({ type: 'xpath', value: `//*[@data-testid="${escaped}"]` });
+    }
+
+    // Name attribute selector
+    const name = element.getAttribute('name');
+    if (name) {
+      selectors.push({
+        type: 'css',
+        value: `${element.tagName.toLowerCase()}[name="${this.cssEscape(name)}"]`
+      });
+    }
+
+    // ARIA selector (aria-label, aria-labelledby)
+    const ariaName = this.getAriaName(element);
+    if (ariaName) {
+      selectors.push({ type: 'aria', value: ariaName });
     }
 
     // Class selector
     if (element.className && typeof element.className === 'string') {
       const classes = element.className.trim().split(/\s+/);
       if (classes.length > 0) {
-        selectors.push({ type: 'class', value: `.${classes.join('.')}` });
-      }
-    }
-
-    // Text content for clickable elements
-    if (this.isClickableElement(element)) {
-      const text = element.textContent?.trim();
-      if (text && text.length < 50) {
-        selectors.push({ type: 'text', value: text });
+        selectors.push({ type: 'css', value: `.${classes.join('.')}` });
       }
     }
 
     // CSS path as fallback
     selectors.push({ type: 'css', value: this.generateCSSPath(element) });
 
+    // Text content (with length limit)
+    const text = element.textContent?.trim();
+    if (text && text.length > 0 && text.length <= 80) {
+      selectors.push({ type: 'text', value: text.slice(0, 80) });
+    }
+
     return selectors;
+  }
+
+  cssEscape(string) {
+    // Use native CSS.escape if available, otherwise fallback
+    if (window.CSS && CSS.escape) {
+      return CSS.escape(string);
+    }
+    // Fallback CSS escaping
+    return String(string).replace(/([ #;?%&,.+*~\':"!^$\[\]()=>|\/])/g, '\\$1');
+  }
+
+  getAriaName(element) {
+    if (!element) return null;
+
+    // Try aria-label first
+    const label = element.getAttribute('aria-label');
+    if (label && label.trim()) return label.trim();
+
+    // Try aria-labelledby
+    const labelledby = element.getAttribute('aria-labelledby');
+    if (labelledby) {
+      const parts = labelledby.split(/\s+/)
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+      const text = parts
+        .map(node => node && node.textContent ? node.textContent : '')
+        .join(' ')
+        .trim();
+      if (text) return text;
+    }
+
+    // Try title attribute
+    const title = element.getAttribute('title');
+    if (title && title.trim()) return title.trim();
+
+    return null;
   }
 
   isClickableElement(element) {
@@ -167,43 +226,57 @@ class ActionRecorder {
   generateCSSPath(element) {
     const path = [];
     let current = element;
+    let depth = 0;
 
-    while (current && current.nodeType === Node.ELEMENT_NODE) {
+    while (current && current.nodeType === Node.ELEMENT_NODE && depth < 5) {
       let selector = current.tagName.toLowerCase();
 
       if (current.id) {
-        selector += `#${current.id}`;
+        selector = `#${this.cssEscape(current.id)}`;
         path.unshift(selector);
         break;
       }
 
-      // Add nth-child if needed for uniqueness
+      // Check for data-testid (high priority)
+      const testid = current.getAttribute('data-testid');
+      if (testid) {
+        selector = `[data-testid="${this.cssEscape(testid)}"]`;
+        path.unshift(selector);
+        break;
+      }
+
+      // Check for name attribute
+      const name = current.getAttribute('name');
+      if (name) {
+        selector = `${current.tagName.toLowerCase()}[name="${this.cssEscape(name)}"]`;
+        path.unshift(selector);
+        break;
+      }
+
+      // Use nth-of-type instead of nth-child for more stability
       if (current.parentElement) {
         const siblings = Array.from(current.parentElement.children)
           .filter(child => child.tagName === current.tagName);
 
         if (siblings.length > 1) {
           const index = siblings.indexOf(current) + 1;
-          selector += `:nth-child(${index})`;
+          selector = `${current.tagName.toLowerCase()}:nth-of-type(${index})`;
         }
       }
 
       path.unshift(selector);
       current = current.parentElement;
-
-      // Limit path depth
-      if (path.length >= 5) break;
+      depth++;
     }
 
     return path.join(' > ');
   }
 
   handleClick(event) {
-    // Skip clicks that were generated by drag operations
+    // Skip recording clicks that were generated by drag operations
+    // But allow the normal browser behavior to proceed
     if (Date.now() < this.suppressClickUntil) {
-      event.stopPropagation();
-      event.preventDefault();
-      return;
+      return; // Don't record, but let the click work normally
     }
 
     const target = event.target;
@@ -257,17 +330,34 @@ class ActionRecorder {
       
       const tagName = current.tagName.toLowerCase();
       const role = current.getAttribute('role');
+      const type = current.getAttribute('type')?.toLowerCase();
       const interactiveRoles = new Set(['button','menuitem','menuitemcheckbox','menuitemradio','option','tab','link']);
       
+      // Check if element is inherently interactive
       const isButtonish = tagName === 'button' || 
                          (tagName === 'a' && current.hasAttribute('href')) || 
-                         (tagName === 'input' && ['button','submit','image'].includes(current.getAttribute('type')||'')) || 
-                         (role && interactiveRoles.has(role)) || 
-                         current.hasAttribute('data-testid');
+                         (tagName === 'input' && ['button','submit','image','checkbox','radio'].includes(type || '')) ||
+                         tagName === 'select' ||
+                         tagName === 'textarea' ||
+                         (role && interactiveRoles.has(role)) ||
+                         current.hasAttribute('data-testid') ||
+                         current.contentEditable === 'true';
       
-      const hasHandler = !!(current.onclick || current.onmousedown || current.onpointerdown || current.getAttribute('onclick'));
+      // Check for event handlers
+      const hasHandler = !!(current.onclick || 
+                            current.onmousedown || 
+                            current.onpointerdown || 
+                            current.getAttribute('onclick') ||
+                            current.getAttribute('onmousedown') ||
+                            current.getAttribute('onpointerdown'));
       
-      if (isButtonish || hasHandler) return current;
+      // Check for cursor pointer (often indicates clickable)
+      const hasPointerCursor = window.getComputedStyle(current).cursor === 'pointer';
+      
+      if (isButtonish || hasHandler || hasPointerCursor) {
+        return current;
+      }
+      
       current = current.parentElement;
     }
     return element;
