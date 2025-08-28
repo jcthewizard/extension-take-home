@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "createdAt": "2025-08-28T18:44:55.817Z",
-  "startUrl": "https://www.google.com/?zx=1756406670831&no_sw_cr=1",
+  "createdAt": "2025-08-28T18:53:21.169Z",
+  "startUrl": "https://www.google.com/?zx=1756407185886&no_sw_cr=1",
   "startTitle": "Google",
   "metadata": {
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
@@ -11,28 +11,12 @@
     {
       "type": "navigate",
       "timestamp": 0,
-      "url": "https://www.google.com/?zx=1756406670831&no_sw_cr=1",
+      "url": "https://www.google.com/?zx=1756407185886&no_sw_cr=1",
       "title": "Google"
     },
     {
       "type": "hover",
-      "timestamp": 875,
-      "selectors": [
-        {
-          "type": "class",
-          "value": ".o3j99.LLD4me.yr19Zb.LS8OJ"
-        },
-        {
-          "type": "css",
-          "value": "html > body > div:nth-child(2) > div:nth-child(3)"
-        }
-      ],
-      "x": 694,
-      "y": 99
-    },
-    {
-      "type": "hover",
-      "timestamp": 1333,
+      "timestamp": 977,
       "selectors": [
         {
           "type": "id",
@@ -47,12 +31,12 @@
           "value": "textarea#APjFqb"
         }
       ],
-      "x": 74,
-      "y": 1
+      "x": 333,
+      "y": 0
     },
     {
       "type": "type",
-      "timestamp": 4002,
+      "timestamp": 1423,
       "selectors": [
         {
           "type": "id",
@@ -72,7 +56,7 @@
     },
     {
       "type": "type",
-      "timestamp": 4171,
+      "timestamp": 1557,
       "selectors": [
         {
           "type": "id",
@@ -92,7 +76,7 @@
     },
     {
       "type": "type",
-      "timestamp": 4255,
+      "timestamp": 1665,
       "selectors": [
         {
           "type": "id",
@@ -112,7 +96,7 @@
     },
     {
       "type": "type",
-      "timestamp": 4473,
+      "timestamp": 1752,
       "selectors": [
         {
           "type": "id",
@@ -132,7 +116,7 @@
     },
     {
       "type": "type",
-      "timestamp": 5218,
+      "timestamp": 2949,
       "selectors": [
         {
           "type": "id",
@@ -152,7 +136,7 @@
     },
     {
       "type": "type",
-      "timestamp": 5378,
+      "timestamp": 3078,
       "selectors": [
         {
           "type": "id",
@@ -172,7 +156,7 @@
     },
     {
       "type": "type",
-      "timestamp": 5463,
+      "timestamp": 3176,
       "selectors": [
         {
           "type": "id",
@@ -192,7 +176,7 @@
     },
     {
       "type": "keydown",
-      "timestamp": 5695,
+      "timestamp": 3301,
       "key": "Enter",
       "selectors": [
         {
@@ -211,19 +195,114 @@
     },
     {
       "type": "navigate",
-      "timestamp": 1756406685376,
-      "url": "https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chatgpt&utm_content=169187630042&utm_ad=713941893298&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UUjUMG1hshMIWUGLSJApfdxG&gclid=EAIaIQobChMI7-Xx4pSujwMV1C2tBh0pnyEkEAAYASAAEgKtCPD_BwE",
+      "timestamp": 1756407193157,
+      "url": "https://www.google.com/search?q=chatgpt&sca_esv=465159d7bf2b0b64&source=hp&ei=kaWwaNGIFaOr0PEP2J31EA&iflsig=AOw8s4IAAAAAaLCzofC672VagPUXyJfMwl2ff83Bntkt&ved=0ahUKEwiRlfTSlq6PAxWjFTQIHdhOHQIQ4dUDCBA&uact=5&oq=chatgpt&gs_lp=Egdnd3Mtd2l6IgdjaGF0Z3B0MggQABiABBixAzILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMhAQABiABBixAxiDARiKBRgKMgsQABiABBixAxiDATIFEAAYgAQyBRAAGIAEMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyDRAAGIAEGLEDGEMYigVI2A5QAFjZDXAAeACQAQCYATGgAZsCqgEBN7gBA8gBAPgBAZgCB6ACtQLCAgoQABiABBhDGIoFwgIWEC4YgAQYsQMY0QMYQxiDARjHARiKBcICDhAuGIAEGLEDGNEDGMcBwgIREC4YgAQYsQMY0QMYgwEYxwHCAg4QABiABBixAxiDARiKBcICEBAAGIAEGLEDGEMYgwEYigXCAgsQLhiABBixAxiDAcICEBAAGIAEGLEDGEMYyQMYigXCAgsQABiABBiSAxiKBZgDAJIHATegB98ysgcBN7gHtQLCBwUwLjQuM8gHEw&sclient=gws-wiz",
+      "title": "chatgpt - Google Search"
+    },
+    {
+      "type": "scroll",
+      "timestamp": 1756407193161,
+      "target": "window",
+      "x": 0,
+      "y": 2263
+    },
+    {
+      "type": "scroll",
+      "timestamp": 1756407193462,
+      "target": "window",
+      "x": 0,
+      "y": 2759
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756407193680,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "div > div:nth-child(2) > div > div > span"
+        }
+      ],
+      "x": 473,
+      "y": 124
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756407194955,
+      "selectors": [
+        {
+          "type": "class",
+          "value": ".sVXRqc.fdYsqf"
+        },
+        {
+          "type": "css",
+          "value": "div > div > div > div:nth-child(1) > a"
+        }
+      ],
+      "x": 189,
+      "y": -6
+    },
+    {
+      "type": "click",
+      "timestamp": 1756407195080,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "div > div:nth-child(1) > a > div:nth-child(1) > span"
+        }
+      ],
+      "x": 390,
+      "y": 209,
+      "button": "left"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756407197144,
+      "url": "https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chatgpt&utm_content=169187630042&utm_ad=713941893298&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UUjUMG1hshMIWUGLSJApfdxG&gclid=EAIaIQobChMI8ena1ZaujwMVlAytBh14BB2EEAMYASAAEgJYRPD_BwE",
       "title": "ChatGPT"
     },
     {
       "type": "navigate",
-      "timestamp": 1756406685440,
-      "url": "https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chatgpt&utm_content=169187630042&utm_ad=713941893298&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UUjUMG1hshMIWUGLSJApfdxG&gclid=EAIaIQobChMI7-Xx4pSujwMV1C2tBh0pnyEkEAAYASAAEgKtCPD_BwE",
+      "timestamp": 1756407197156,
+      "url": "https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chatgpt&utm_content=169187630042&utm_ad=713941893298&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UUjUMG1hshMIWUGLSJApfdxG&gclid=EAIaIQobChMI8ena1ZaujwMVlAytBh14BB2EEAMYASAAEgJYRPD_BwE",
       "title": "ChatGPT"
     },
     {
+      "type": "click",
+      "timestamp": 1756407197402,
+      "selectors": [
+        {
+          "type": "class",
+          "value": ".placeholder"
+        },
+        {
+          "type": "css",
+          "value": "div#prompt-textarea > p"
+        }
+      ],
+      "x": 595,
+      "y": 394,
+      "button": "left"
+    },
+    {
+      "type": "click",
+      "timestamp": 1756407197402,
+      "selectors": [
+        {
+          "type": "class",
+          "value": ".placeholder"
+        },
+        {
+          "type": "css",
+          "value": "div#prompt-textarea > p"
+        }
+      ],
+      "x": 595,
+      "y": 394,
+      "button": "left"
+    },
+    {
       "type": "type",
-      "timestamp": 1756406686413,
+      "timestamp": 1756407197849,
       "selectors": [
         {
           "type": "id",
@@ -242,7 +321,7 @@
     },
     {
       "type": "type",
-      "timestamp": 1756406686413,
+      "timestamp": 1756407197849,
       "selectors": [
         {
           "type": "id",
@@ -261,7 +340,7 @@
     },
     {
       "type": "type",
-      "timestamp": 1756406686647,
+      "timestamp": 1756407197873,
       "selectors": [
         {
           "type": "id",
@@ -280,83 +359,7 @@
     },
     {
       "type": "type",
-      "timestamp": 1756406686647,
-      "selectors": [
-        {
-          "type": "id",
-          "value": "#prompt-textarea"
-        },
-        {
-          "type": "class",
-          "value": ".ProseMirror.ProseMirror-focused"
-        },
-        {
-          "type": "css",
-          "value": "div#prompt-textarea"
-        }
-      ],
-      "inputType": "text"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756406686855,
-      "selectors": [
-        {
-          "type": "id",
-          "value": "#prompt-textarea"
-        },
-        {
-          "type": "class",
-          "value": ".ProseMirror.ProseMirror-focused"
-        },
-        {
-          "type": "css",
-          "value": "div#prompt-textarea"
-        }
-      ],
-      "inputType": "text"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756406686855,
-      "selectors": [
-        {
-          "type": "id",
-          "value": "#prompt-textarea"
-        },
-        {
-          "type": "class",
-          "value": ".ProseMirror.ProseMirror-focused"
-        },
-        {
-          "type": "css",
-          "value": "div#prompt-textarea"
-        }
-      ],
-      "inputType": "text"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756406687109,
-      "selectors": [
-        {
-          "type": "id",
-          "value": "#prompt-textarea"
-        },
-        {
-          "type": "class",
-          "value": ".ProseMirror.ProseMirror-focused"
-        },
-        {
-          "type": "css",
-          "value": "div#prompt-textarea"
-        }
-      ],
-      "inputType": "text"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756406687109,
+      "timestamp": 1756407197873,
       "selectors": [
         {
           "type": "id",
@@ -375,7 +378,7 @@
     },
     {
       "type": "keydown",
-      "timestamp": 1756406691965,
+      "timestamp": 1756407198082,
       "key": "Enter",
       "selectors": [
         {
@@ -394,7 +397,7 @@
     },
     {
       "type": "keydown",
-      "timestamp": 1756406691965,
+      "timestamp": 1756407198082,
       "key": "Enter",
       "selectors": [
         {
@@ -413,7 +416,7 @@
     },
     {
       "type": "hover",
-      "timestamp": 1756406692221,
+      "timestamp": 1756407198342,
       "selectors": [
         {
           "type": "class",
@@ -424,12 +427,12 @@
           "value": "div#thread > div > div:nth-child(1)"
         }
       ],
-      "x": 637,
-      "y": 377
+      "x": 595,
+      "y": 394
     },
     {
       "type": "hover",
-      "timestamp": 1756406692578,
+      "timestamp": 1756407198632,
       "selectors": [
         {
           "type": "class",
@@ -440,40 +443,8 @@
           "value": "div#thread > div > div:nth-child(1) > div > div"
         }
       ],
-      "x": 637,
-      "y": 377
-    },
-    {
-      "type": "hover",
-      "timestamp": 1756406692906,
-      "selectors": [
-        {
-          "type": "class",
-          "value": ".text-token-text-primary.w-full.focus:outline-none.scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]"
-        },
-        {
-          "type": "css",
-          "value": "div:nth-child(1) > div > div > div:nth-child(2) > article:nth-child(2)"
-        }
-      ],
-      "x": 827,
-      "y": 70
-    },
-    {
-      "type": "hover",
-      "timestamp": 1756406694003,
-      "selectors": [
-        {
-          "type": "class",
-          "value": ".flex.h-full.flex-col.overflow-y-auto.[scrollbar-gutter:stable_both-edges].@[84rem]/thread:pt-(--header-height)"
-        },
-        {
-          "type": "css",
-          "value": "div#thread > div > div:nth-child(1) > div > div"
-        }
-      ],
-      "x": 1058,
-      "y": 49
+      "x": 595,
+      "y": 394
     }
   ]
 }

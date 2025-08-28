@@ -4,6 +4,8 @@ class ActionRecorder {
     this.startTime = 0;
     this.hoverTimer = null;
     this.hoverCandidate = null;
+    this.lastWindowScrollAt = 0;
+    this.suppressScrollUntil = 0;
     this.setupMessageListener();
   }
 
@@ -24,6 +26,13 @@ class ActionRecorder {
 
   startRecording(resumed = false) {
     if (this.isRecording && !resumed) return;
+
+    // Check if we're on a bot detection page
+    if (this.isBotDetectionPage()) {
+      console.log('Content script: Bot detection page detected, pausing recording');
+      this.setupDetectionPageWatcher();
+      return;
+    }
 
     this.isRecording = true;
 
@@ -52,6 +61,8 @@ class ActionRecorder {
     document.addEventListener('keydown', this.handleKeydown.bind(this), true);
     document.addEventListener('mouseover', this.handleMouseOver.bind(this), true);
     document.addEventListener('mouseout', this.handleMouseOut.bind(this), true);
+    window.addEventListener('scroll', this.handleWindowScroll.bind(this), true);
+    document.addEventListener('scroll', this.handleElementScroll.bind(this), true);
 
     console.log(`Content script: Recording ${resumed ? 'resumed' : 'started'} on ${window.location.href}`);
   }
@@ -67,6 +78,8 @@ class ActionRecorder {
     document.removeEventListener('keydown', this.handleKeydown.bind(this), true);
     document.removeEventListener('mouseover', this.handleMouseOver.bind(this), true);
     document.removeEventListener('mouseout', this.handleMouseOut.bind(this), true);
+    window.removeEventListener('scroll', this.handleWindowScroll.bind(this), true);
+    document.removeEventListener('scroll', this.handleElementScroll.bind(this), true);
     
     // Clear any pending hover timer
     if (this.hoverTimer) {
@@ -213,6 +226,12 @@ class ActionRecorder {
         selectors: this.generateSelectors(event.target)
       });
     }
+
+    // Suppress scroll recording for navigation keys that cause automatic scrolling
+    const scrollKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Space', 'Spacebar']);
+    if (scrollKeys.has(event.key)) {
+      this.suppressScrollUntil = Date.now() + 400; // Suppress for 400ms
+    }
   }
 
   getNearestClickableElement(element) {
@@ -279,6 +298,128 @@ class ActionRecorder {
       this.hoverTimer = null;
     }
     this.hoverCandidate = null;
+  }
+
+  handleWindowScroll() {
+    if (!this.isRecording) return;
+    
+    // Skip if scroll is suppressed (from keyboard navigation)
+    if (Date.now() < this.suppressScrollUntil) return;
+    
+    // Throttle scroll events to prevent spam (300ms intervals like reference)
+    const now = performance.now();
+    if (now - this.lastWindowScrollAt < 300) return;
+    
+    this.lastWindowScrollAt = now;
+    
+    this.recordEvent({
+      type: 'scroll',
+      target: 'window',
+      x: window.scrollX,
+      y: window.scrollY
+    });
+  }
+
+  handleElementScroll(event) {
+    if (!this.isRecording) return;
+    
+    const target = event.target;
+    
+    // Skip if this is the window/document (handled by handleWindowScroll)
+    if (target === window || target === document || target === document.documentElement || target === document.body) {
+      return;
+    }
+    
+    // Only track scrollable elements (overflow: auto, scroll, or scrollable content)
+    const computedStyle = window.getComputedStyle(target);
+    const isScrollable = computedStyle.overflow === 'auto' || 
+                        computedStyle.overflow === 'scroll' ||
+                        computedStyle.overflowY === 'auto' ||
+                        computedStyle.overflowY === 'scroll' ||
+                        computedStyle.overflowX === 'auto' ||
+                        computedStyle.overflowX === 'scroll';
+    
+    if (!isScrollable) return;
+    
+    this.recordEvent({
+      type: 'scroll',
+      target: 'element',
+      x: target.scrollLeft,
+      y: target.scrollTop,
+      selectors: this.generateSelectors(target)
+    });
+  }
+
+  isBotDetectionPage() {
+    // Check for common bot detection page indicators
+    const url = window.location.href;
+    const title = document.title.toLowerCase();
+    const bodyText = document.body ? document.body.textContent.toLowerCase() : '';
+    
+    // Google's bot detection page
+    if (url.includes('google.com') && 
+        (bodyText.includes('unusual traffic') || 
+         bodyText.includes('not a robot') ||
+         bodyText.includes('verify you are human') ||
+         title.includes('unusual traffic'))) {
+      return true;
+    }
+    
+    // Cloudflare protection
+    if (bodyText.includes('checking your browser') || 
+        bodyText.includes('cloudflare') ||
+        title.includes('just a moment')) {
+      return true;
+    }
+    
+    // Generic captcha/verification pages
+    if (bodyText.includes('captcha') || 
+        bodyText.includes('verification') ||
+        bodyText.includes('prove you are human')) {
+      return true;
+    }
+    
+    return false;
+  }
+
+  setupDetectionPageWatcher() {
+    // Watch for page changes that indicate we've passed the detection
+    const observer = new MutationObserver(() => {
+      if (!this.isBotDetectionPage()) {
+        console.log('Content script: Detection page cleared, resuming recording');
+        observer.disconnect();
+        this.startRecording(true); // Resume recording
+      }
+    });
+    
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true,
+      attributes: true 
+    });
+    
+    // Also check URL changes
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+    
+    const checkAndResume = () => {
+      if (!this.isBotDetectionPage()) {
+        console.log('Content script: URL changed, detection cleared, resuming recording');
+        this.startRecording(true);
+      }
+    };
+    
+    history.pushState = function(...args) {
+      const result = originalPushState.apply(this, args);
+      setTimeout(checkAndResume, 100);
+      return result;
+    };
+    
+    history.replaceState = function(...args) {
+      const result = originalReplaceState.apply(this, args);
+      setTimeout(checkAndResume, 100);
+      return result;
+    };
   }
 }
 
