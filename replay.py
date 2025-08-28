@@ -20,10 +20,11 @@ except ImportError:
 
 
 class TraceReplayer:
-    def __init__(self, trace_path: str, headless: bool = False, verbose: bool = False):
+    def __init__(self, trace_path: str, headless: bool = False, verbose: bool = False, stealth: bool = False):
         self.trace_path = trace_path
         self.headless = headless
         self.verbose = verbose
+        self.stealth = stealth
         self.trace = None
         self.page = None
         self.browser = None
@@ -50,6 +51,37 @@ class TraceReplayer:
         """Log message if verbose mode is enabled."""
         if self.verbose:
             print(f"[REPLAY] {message}")
+
+    def setup_stealth_mode(self, context):
+        """Setup stealth mode to avoid bot detection."""
+        if not self.stealth:
+            return
+
+        # Add stealth scripts
+        context.add_init_script("""
+            // Override webdriver property
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => undefined,
+            });
+
+            // Override plugins
+            Object.defineProperty(navigator, 'plugins', {
+                get: () => [1, 2, 3, 4, 5],
+            });
+
+            // Override languages
+            Object.defineProperty(navigator, 'languages', {
+                get: () => ['en-US', 'en'],
+            });
+
+            // Override permissions
+            const originalQuery = window.navigator.permissions.query;
+            window.navigator.permissions.query = (parameters) => (
+                parameters.name === 'notifications' ?
+                    Promise.resolve({ state: Notification.permission }) :
+                    originalQuery(parameters)
+            );
+        """)
 
     def find_element_by_selectors(self, selectors: List[Dict[str, str]], timeout: int = 5000) -> Any:
         """Find element using the selector strategies from the trace."""
@@ -91,9 +123,18 @@ class TraceReplayer:
 
         self.log(f"Navigating to: {url}")
         try:
+            # Add random delay for stealth
+            if self.stealth:
+                time.sleep(1 + (time.time() % 2))  # 1-3 second random delay
+
             self.page.goto(url, wait_until='domcontentloaded', timeout=30000)
             # Give the page time to load
             self.page.wait_for_load_state('networkidle', timeout=10000)
+
+            # Add random mouse movement for stealth
+            if self.stealth:
+                self.page.mouse.move(100 + (time.time() % 100), 100 + (time.time() % 100))
+
         except PlaywrightTimeout:
             self.log("Navigation timeout, continuing anyway")
         except Exception as e:
@@ -109,6 +150,10 @@ class TraceReplayer:
             return
 
         try:
+            # Add random delay for stealth
+            if self.stealth:
+                time.sleep(0.5 + (time.time() % 1))  # 0.5-1.5 second random delay
+
             self.log(f"Clicking element")
             element.click()
 
@@ -129,7 +174,16 @@ class TraceReplayer:
         try:
             # Clear existing content and type new text
             element.click()  # Focus the element
-            element.fill(text)  # This clears and types
+
+            if self.stealth:
+                # Type with human-like delays
+                element.fill("")  # Clear first
+                for char in text:
+                    element.type(char)
+                    time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
+            else:
+                element.fill(text)  # This clears and types
+
             self.log(f"Typed: '{text[:50]}{'...' if len(text) > 50 else ''}'")
 
         except Exception as e:
@@ -143,6 +197,10 @@ class TraceReplayer:
             return
 
         try:
+            # Add random delay for stealth
+            if self.stealth:
+                time.sleep(0.3 + (time.time() % 0.7))  # 0.3-1.0 second random delay
+
             # Press the key
             self.page.keyboard.press(key)
             self.log(f"Pressed key: {key}")
@@ -173,8 +231,44 @@ class TraceReplayer:
 
         # Start Playwright
         with sync_playwright() as p:
-            self.browser = p.chromium.launch(headless=self.headless)
-            context = self.browser.new_context()
+            # Launch browser with stealth options
+            if self.stealth:
+                self.browser = p.chromium.launch(
+                    headless=self.headless,
+                    args=[
+                        '--disable-blink-features=AutomationControlled',
+                        '--disable-features=VizDisplayCompositor',
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-dev-shm-usage',
+                        '--disable-accelerated-2d-canvas',
+                        '--no-first-run',
+                        '--no-zygote',
+                        '--disable-gpu'
+                    ]
+                )
+            else:
+                self.browser = p.chromium.launch(headless=self.headless)
+
+            # Create context with stealth options
+            if self.stealth:
+                context = self.browser.new_context(
+                    viewport={'width': 1920, 'height': 1080},
+                    user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                    locale='en-US',
+                    timezone_id='America/New_York',
+                    extra_http_headers={
+                        'Accept-Language': 'en-US,en;q=0.9',
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                        'Cache-Control': 'no-cache',
+                        'Pragma': 'no-cache',
+                    }
+                )
+                self.setup_stealth_mode(context)
+            else:
+                context = self.browser.new_context()
+
             self.page = context.new_page()
 
             try:
@@ -226,6 +320,7 @@ def main():
     parser.add_argument("trace_file", help="Path to the trace JSON file")
     parser.add_argument("--headless", action="store_true", help="Run in headless mode")
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose output")
+    parser.add_argument("--stealth", action="store_true", help="Enable stealth mode to avoid bot detection")
 
     args = parser.parse_args()
 
@@ -239,7 +334,8 @@ def main():
     replayer = TraceReplayer(
         trace_path=str(trace_path),
         headless=args.headless,
-        verbose=args.verbose
+        verbose=args.verbose,
+        stealth=args.stealth
     )
 
     try:
