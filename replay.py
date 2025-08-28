@@ -176,15 +176,29 @@ class TraceReplayer:
             element.click()  # Focus the element
 
             if self.stealth:
-                # Type with human-like delays
-                element.fill("")  # Clear first
-                for char in text:
-                    element.type(char)
-                    time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
-            else:
-                element.fill(text)  # This clears and types
+                # For stealth mode, we need to handle incremental typing
+                # Get the current text in the element
+                current_text = element.input_value() if hasattr(element, 'input_value') else element.text_content() or ""
 
-            self.log(f"Typed: '{text[:50]}{'...' if len(text) > 50 else ''}'")
+                # Calculate what new text to add
+                if text.startswith(current_text) and len(text) > len(current_text):
+                    # This is incremental typing - only type the new characters
+                    new_chars = text[len(current_text):]
+                    for char in new_chars:
+                        element.type(char)
+                        time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
+                    self.log(f"Typed incrementally: '{new_chars}' (total: '{text}')")
+                else:
+                    # This is a replacement - clear and type the full text
+                    element.fill("")  # Clear first
+                    for char in text:
+                        element.type(char)
+                        time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
+                    self.log(f"Typed replacement: '{text[:50]}{'...' if len(text) > 50 else ''}'")
+            else:
+                # For non-stealth mode, just replace the text
+                element.fill(text)  # This clears and types
+                self.log(f"Typed: '{text[:50]}{'...' if len(text) > 50 else ''}'")
 
         except Exception as e:
             self.log(f"Type error: {e}")
