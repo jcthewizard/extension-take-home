@@ -2,6 +2,8 @@ class ActionRecorder {
   constructor() {
     this.isRecording = false;
     this.startTime = 0;
+    this.hoverTimer = null;
+    this.hoverCandidate = null;
     this.setupMessageListener();
   }
 
@@ -48,6 +50,8 @@ class ActionRecorder {
     document.addEventListener('click', this.handleClick.bind(this), true);
     document.addEventListener('input', this.handleInput.bind(this), true);
     document.addEventListener('keydown', this.handleKeydown.bind(this), true);
+    document.addEventListener('mouseover', this.handleMouseOver.bind(this), true);
+    document.addEventListener('mouseout', this.handleMouseOut.bind(this), true);
 
     console.log(`Content script: Recording ${resumed ? 'resumed' : 'started'} on ${window.location.href}`);
   }
@@ -61,6 +65,15 @@ class ActionRecorder {
     document.removeEventListener('click', this.handleClick.bind(this), true);
     document.removeEventListener('input', this.handleInput.bind(this), true);
     document.removeEventListener('keydown', this.handleKeydown.bind(this), true);
+    document.removeEventListener('mouseover', this.handleMouseOver.bind(this), true);
+    document.removeEventListener('mouseout', this.handleMouseOut.bind(this), true);
+    
+    // Clear any pending hover timer
+    if (this.hoverTimer) {
+      clearTimeout(this.hoverTimer);
+      this.hoverTimer = null;
+    }
+    this.hoverCandidate = null;
 
     console.log('Content script: Recording stopped');
   }
@@ -200,6 +213,72 @@ class ActionRecorder {
         selectors: this.generateSelectors(event.target)
       });
     }
+  }
+
+  getNearestClickableElement(element) {
+    let current = element;
+    while (current && current !== document.documentElement) {
+      if (!(current instanceof Element)) break;
+      
+      const tagName = current.tagName.toLowerCase();
+      const role = current.getAttribute('role');
+      const interactiveRoles = new Set(['button','menuitem','menuitemcheckbox','menuitemradio','option','tab','link']);
+      
+      const isButtonish = tagName === 'button' || 
+                         (tagName === 'a' && current.hasAttribute('href')) || 
+                         (tagName === 'input' && ['button','submit','image'].includes(current.getAttribute('type')||'')) || 
+                         (role && interactiveRoles.has(role)) || 
+                         current.hasAttribute('data-testid');
+      
+      const hasHandler = !!(current.onclick || current.onmousedown || current.onpointerdown || current.getAttribute('onclick'));
+      
+      if (isButtonish || hasHandler) return current;
+      current = current.parentElement;
+    }
+    return element;
+  }
+
+  scheduleHover(element, clientX, clientY) {
+    // Clear any existing hover timer
+    if (this.hoverTimer) {
+      clearTimeout(this.hoverTimer);
+      this.hoverTimer = null;
+    }
+
+    this.hoverCandidate = element;
+    
+    // Schedule hover event after 200ms dwell time
+    this.hoverTimer = setTimeout(() => {
+      this.hoverTimer = null;
+      if (!this.hoverCandidate || !this.isRecording) return;
+
+      const rect = this.hoverCandidate.getBoundingClientRect();
+      const step = {
+        type: 'hover',
+        selectors: this.generateSelectors(this.hoverCandidate),
+        x: Math.round(clientX - rect.left),
+        y: Math.round(clientY - rect.top),
+        timestamp: this.getTimestamp()
+      };
+      
+      this.recordEvent(step);
+    }, 200); // 200ms dwell time like reference implementation
+  }
+
+  handleMouseOver(event) {
+    if (!this.isRecording) return;
+    
+    const element = this.getNearestClickableElement(event.target);
+    this.scheduleHover(element, event.clientX, event.clientY);
+  }
+
+  handleMouseOut() {
+    // Clear hover timer when mouse leaves
+    if (this.hoverTimer) {
+      clearTimeout(this.hoverTimer);
+      this.hoverTimer = null;
+    }
+    this.hoverCandidate = null;
   }
 }
 
