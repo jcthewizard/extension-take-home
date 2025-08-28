@@ -1,0 +1,875 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-08-28T21:19:49.900Z",
+  "startUrl": "https://jcthewizard.github.io/PersonalWebsite/",
+  "startTitle": "Josh Chou - Interactive Portfolio",
+  "metadata": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "extension": "DevTools Recorder v1.0"
+  },
+  "steps": [
+    {
+      "type": "navigate",
+      "timestamp": 0,
+      "url": "https://jcthewizard.github.io/PersonalWebsite/",
+      "title": "Josh Chou - Interactive Portfolio"
+    },
+    {
+      "type": "hover",
+      "timestamp": 972,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#canvas-container > canvas"
+        }
+      ],
+      "x": 1068,
+      "y": 139
+    },
+    {
+      "type": "key",
+      "timestamp": 2816,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 2817,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 3031,
+      "key": "d",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 3365,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 3365,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 3554,
+      "key": "d",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 3898,
+      "key": "w",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 3898,
+      "key": "w",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 4148,
+      "key": "w",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 4415,
+      "key": "w",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 4415,
+      "key": "w",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 4621,
+      "key": "w",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 5206,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 5206,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 5400,
+      "key": "a",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 5550,
+      "key": "w",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 5550,
+      "key": "w",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 5872,
+      "key": "w",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6031,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6032,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6531,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6531,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6616,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6616,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6698,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6698,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6781,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6781,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6864,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6865,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6948,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 6949,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7032,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7032,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7115,
+      "key": "a",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7115,
+      "key": "a",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7131,
+      "key": "a",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7189,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7190,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7690,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7690,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7773,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7773,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7857,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7857,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7939,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 7939,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8022,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8022,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8106,
+      "key": "s",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8106,
+      "key": "s",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8155,
+      "key": "s",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8381,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8381,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8881,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8881,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8964,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 8964,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9051,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9051,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9136,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9136,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9218,
+      "key": "d",
+      "action": "down",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9219,
+      "key": "d",
+      "action": "press",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 9250,
+      "key": "d",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "html > body"
+        }
+      ]
+    }
+  ]
+}

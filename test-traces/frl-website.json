@@ -1,0 +1,900 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-08-28T21:18:02.291Z",
+  "startUrl": "https://www.google.com/?zx=1756415857304&no_sw_cr=1",
+  "startTitle": "Google",
+  "metadata": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "extension": "DevTools Recorder v1.0"
+  },
+  "steps": [
+    {
+      "type": "navigate",
+      "timestamp": 0,
+      "url": "https://www.google.com/?zx=1756415857304&no_sw_cr=1",
+      "title": "Google"
+    },
+    {
+      "type": "hover",
+      "timestamp": 863,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "x": 137,
+      "y": 1
+    },
+    {
+      "type": "type",
+      "timestamp": 1716,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "f",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1911,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fu",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2119,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fun",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2302,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fund",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2395,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "funda",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2609,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundam",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2709,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundame",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2823,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamen",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2907,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundament",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2993,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamenta",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3139,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3373,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental ",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3574,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental r",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3697,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental re",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3953,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental res",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4113,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental rese",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4248,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental resea",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4346,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental resear",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4584,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental researc",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4702,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4847,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research ",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4970,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research l",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 5092,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research la",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 5204,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research lab",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 5300,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research labs",
+      "inputType": "textarea"
+    },
+    {
+      "type": "submit",
+      "timestamp": 5445,
+      "formSelectors": [
+        {
+          "type": "css",
+          "value": "html > body > div:nth-of-type(2) > div:nth-of-type(4) > form"
+        }
+      ],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ]
+    },
+    {
+      "type": "type",
+      "timestamp": 5523,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "fundamental research labs",
+      "inputType": "textarea"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756415871842,
+      "url": "https://www.google.com/search?q=fundamental+research+labs&sca_esv=921846c6c5ac185b&source=hp&ei=cMewaOeGNYzE0PEPpc6uwAs&iflsig=AOw8s4IAAAAAaLDVgFEpL31OLPnZwEXKP6qg0kRavRuj&ved=0ahUKEwjn_uf5tq6PAxUMIjQIHSWnC7gQ4dUDCBA&uact=5&oq=fundamental+research+labs&gs_lp=Egdnd3Mtd2l6IhlmdW5kYW1lbnRhbCByZXNlYXJjaCBsYWJzMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEiRHVAAWP8bcAB4AJABAJgBPaAB5wmqAQIyNbgBA8gBAPgBAZgCGaACtgrCAhEQLhiABBixAxjRAxiDARjHAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgsQLhiABBjRAxjHAcICCBAuGIAEGLEDwgIOEC4YgAQYsQMY0QMYxwHCAg4QABiABBixAxiDARiKBcICDhAuGIAEGMcBGI4FGK8BwgILEC4YgAQYxwEYrwHCAhEQLhiABBixAxiDARjHARivAcICEBAAGIAEGLEDGIMBGEYY-QGYAwCSBwIyNaAH7coBsgcCMjW4B7YKwgcGMC4yMS40yAc-&sclient=gws-wiz",
+      "title": "fundamental research labs - Google Search"
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756415872127,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".LC20lb.MBeuO.DKV0Md"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > h3"
+        },
+        {
+          "type": "text",
+          "value": "Fundamental Research Labs"
+        }
+      ],
+      "x": 169,
+      "y": 30
+    },
+    {
+      "type": "click",
+      "timestamp": 1756415872814,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".LC20lb.MBeuO.DKV0Md"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > h3"
+        },
+        {
+          "type": "text",
+          "value": "Fundamental Research Labs"
+        }
+      ],
+      "x": 189,
+      "y": 19,
+      "button": "left"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756415874327,
+      "url": "https://fundamentalresearchlabs.com/",
+      "title": "Fundamental Research Labs"
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756415876786,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".hero-button"
+        },
+        {
+          "type": "css",
+          "value": "section:nth-of-type(1) > div > div > div > button"
+        },
+        {
+          "type": "text",
+          "value": "Try Fairies"
+        }
+      ],
+      "x": 17,
+      "y": 0
+    },
+    {
+      "type": "click",
+      "timestamp": 1756415876904,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".hero-button"
+        },
+        {
+          "type": "css",
+          "value": "section:nth-of-type(1) > div > div > div > button"
+        },
+        {
+          "type": "text",
+          "value": "Try Fairies"
+        }
+      ],
+      "x": 66,
+      "y": 10,
+      "button": "left"
+    }
+  ]
+}
