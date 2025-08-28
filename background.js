@@ -4,6 +4,7 @@ class RecordingManager {
     this.currentSession = null;
     this.recordedEvents = [];
     this.setupMessageHandlers();
+    this.setupNavigationListeners();
   }
 
   setupMessageHandlers() {
@@ -11,6 +12,51 @@ class RecordingManager {
       this.handleMessage(message, sender, sendResponse);
       return true; // Keep message channel open for async responses
     });
+  }
+
+  setupNavigationListeners() {
+    // Listen for tab updates (navigation, page loads)
+    chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+      if (this.isRecording &&
+          this.currentSession?.tabId === tabId &&
+          changeInfo.status === 'complete' &&
+          tab.url &&
+          !tab.url.startsWith('chrome://') &&
+          !tab.url.startsWith('chrome-extension://')) {
+
+        console.log('Tab navigation detected, re-injecting content script:', tab.url);
+
+        // Re-inject content script and resume recording
+        this.reinjectContentScript(tabId, tab.url);
+      }
+    });
+
+        // Note: chrome.tabs.onNavigation is not available in Manifest V3
+    // We rely on chrome.tabs.onUpdated for navigation detection
+  }
+
+  async reinjectContentScript(tabId, url) {
+    try {
+      // Wait a bit for the page to fully load
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Re-inject the content script
+      await chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        files: ['content.js']
+      });
+
+      // Tell the content script to resume recording
+      await chrome.tabs.sendMessage(tabId, {
+        type: 'START_RECORDING',
+        resumed: true,
+        url: url
+      });
+
+      console.log('Content script re-injected and recording resumed on:', url);
+    } catch (error) {
+      console.error('Failed to re-inject content script:', error);
+    }
   }
 
   async handleMessage(message, sender, sendResponse) {

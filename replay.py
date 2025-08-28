@@ -176,25 +176,28 @@ class TraceReplayer:
             element.click()  # Focus the element
 
             if self.stealth:
-                # For stealth mode, we need to handle incremental typing
+                # For stealth mode, always use incremental typing
                 # Get the current text in the element
                 current_text = element.input_value() if hasattr(element, 'input_value') else element.text_content() or ""
 
-                # Calculate what new text to add
-                if text.startswith(current_text) and len(text) > len(current_text):
+                # Always calculate what new text to add incrementally
+                if text.startswith(current_text):
                     # This is incremental typing - only type the new characters
                     new_chars = text[len(current_text):]
-                    for char in new_chars:
-                        element.type(char)
-                        time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
-                    self.log(f"Typed incrementally: '{new_chars}' (total: '{text}')")
+                    if new_chars:  # Only type if there are new characters
+                        for char in new_chars:
+                            element.type(char)
+                            time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
+                        self.log(f"Typed incrementally: '{new_chars}' (total: '{text}')")
+                    else:
+                        self.log(f"No new characters to type (current: '{current_text}', target: '{text}')")
                 else:
-                    # This is a replacement - clear and type the full text
+                    # If text doesn't start with current, clear and type incrementally
                     element.fill("")  # Clear first
                     for char in text:
                         element.type(char)
                         time.sleep(0.05 + (time.time() % 0.1))  # 50-150ms between characters
-                    self.log(f"Typed replacement: '{text[:50]}{'...' if len(text) > 50 else ''}'")
+                    self.log(f"Cleared and typed incrementally: '{text[:50]}{'...' if len(text) > 50 else ''}'")
             else:
                 # For non-stealth mode, just replace the text
                 element.fill(text)  # This clears and types

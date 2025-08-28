@@ -1,0 +1,559 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-08-28T06:57:03.728Z",
+  "startUrl": "https://www.google.com/",
+  "startTitle": "Google",
+  "metadata": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "extension": "DevTools Recorder v1.0"
+  },
+  "steps": [
+    {
+      "type": "navigate",
+      "timestamp": 0,
+      "url": "https://www.google.com/",
+      "title": "Google"
+    },
+    {
+      "type": "type",
+      "timestamp": 2862,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "g",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 2939,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "gr",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3507,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "gra",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 3880,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "gram",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4024,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "gramm",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4180,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "gramma",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4262,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "grammar",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4545,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "grammarl",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 4627,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ],
+      "text": "grammarly",
+      "inputType": "textarea"
+    },
+    {
+      "type": "keydown",
+      "timestamp": 4838,
+      "key": "Enter",
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "class",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "textarea#APjFqb"
+        }
+      ]
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756364203423,
+      "url": "https://www.google.com/search?q=grammarly&sca_esv=ffd48def480ec45e&source=hp&ei=oP2vaPeAJKO10PEPhO5J&iflsig=AOw8s4IAAAAAaLALsOgfdHFavyPAHE6Xw_VpZ3xz4KoM&ved=0ahUKEwj30K6-9qyPAxWjGjQIHQR3EgAQ4dUDCBA&uact=5&oq=grammarly&gs_lp=Egdnd3Mtd2l6IglncmFtbWFybHkyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyERAuGIAEGLEDGNEDGIMBGMcBMhAQABiABBixAxhDGIMBGIoFMgsQABiABBixAxiDATIQEAAYgAQYsQMYQxiDARiKBUi5D1AAWOUNcAB4AJABAJgBPaABugOqAQE5uAEDyAEA-AEBmAIJoALOA8ICFhAuGIAEGLEDGNEDGEMYgwEYxwEYigXCAgoQABiABBhDGIoFwgIFEC4YgATCAg0QABiABBixAxhDGIoFwgIOEAAYgAQYsQMYgwEYigXCAgUQABiABMICCBAAGIAEGLEDmAMAkgcBOaAHoEKyBwE5uAfOA8IHBTEuNy4xyAcO&sclient=gws-wiz",
+      "title": "grammarly - Google Search"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756364206816,
+      "url": "https://www.grammarly.com/",
+      "title": "Grammarly: Free AI Writing Assistance"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756364216299,
+      "url": "https://www.grammarly.com/word-counter?utm_source=google&utm_medium=cpc&utm_campaign=22648343455&utm_content=756544831914&utm_term=word%20count&target=&targetid=kwd-15502136&adgroup=187434321744&device=c&matchtype=b&placement=&network=g&extension=&clickid=EAIaIQobChMI6vvEyPasjwMVGQCtBh20ugKvEAAYASAAEgITV_D_BwE&gclsrc=aw.ds&gad_source=1&gad_campaignid=22648343455&gbraid=0AAAAADkCrf9GwK3ONPmIRLKbOV8XZ2Rr_&gclid=EAIaIQobChMI6vvEyPasjwMVGQCtBh20ugKvEAAYASAAEgITV_D_BwE",
+      "title": "Free Online Word Counter: Count Words & Check Grammar"
+    },
+    {
+      "type": "click",
+      "timestamp": 1756364217412,
+      "selectors": [
+        {
+          "type": "class",
+          "value": ".textAreaContainerWithHelperMessage_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "div#sectionGrammarCheck_5WOLW9aMDMJ0R466razinD > div:nth-child(2) > div > div:nth-child(1)"
+        }
+      ],
+      "x": 548,
+      "y": 328,
+      "button": "left"
+    },
+    {
+      "type": "click",
+      "timestamp": 1756364217875,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "x": 509,
+      "y": 341,
+      "button": "left"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364218122,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "t",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364218523,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "te",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364218526,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "tes",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364218528,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test",
+      "inputType": "textarea"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756364218541,
+      "url": "https://www.grammarly.com/word-counter?utm_source=google&utm_medium=cpc&utm_campaign=22648343455&utm_content=756544831914&utm_term=word%20count&target=&targetid=kwd-15502136&adgroup=187434321744&device=c&matchtype=b&placement=&network=g&extension=&clickid=EAIaIQobChMI6vvEyPasjwMVGQCtBh20ugKvEAAYASAAEgITV_D_BwE&gclsrc=aw.ds&gad_source=1&gad_campaignid=22648343455&gbraid=0AAAAADkCrf9GwK3ONPmIRLKbOV8XZ2Rr_&gclid=EAIaIQobChMI6vvEyPasjwMVGQCtBh20ugKvEAAYASAAEgITV_D_BwE",
+      "title": "Free Online Word Counter: Count Words & Check Grammar"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364218871,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test ",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364218871,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test ",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219043,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test t",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219044,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test t",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219144,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test te",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219144,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test te",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219212,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test tes",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219212,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test tes",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219354,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test test",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756364219354,
+      "selectors": [
+        {
+          "type": "id",
+          "value": "#text-area-editor-plugin"
+        },
+        {
+          "type": "class",
+          "value": ".textArea_EarL03Wc"
+        },
+        {
+          "type": "css",
+          "value": "textarea#text-area-editor-plugin"
+        }
+      ],
+      "text": "test test",
+      "inputType": "textarea"
+    }
+  ]
+}
