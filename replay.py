@@ -270,7 +270,7 @@ class TraceReplayer:
             # Create context with stealth options
             if self.stealth:
                 context = self.browser.new_context(
-                    viewport={'width': 1920, 'height': 1080},
+                    viewport={'width': 1366, 'height': 768},  # More standard laptop resolution
                     user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                     locale='en-US',
                     timezone_id='America/New_York',
@@ -287,6 +287,15 @@ class TraceReplayer:
                 context = self.browser.new_context()
 
             self.page = context.new_page()
+
+            # Center the page content for better visibility
+            if self.stealth:
+                self.page.add_init_script("""
+                    // Center the page content
+                    document.body.style.margin = '0 auto';
+                    document.body.style.maxWidth = '100%';
+                    document.body.style.textAlign = 'center';
+                """)
 
             try:
                 # Get the start URL
