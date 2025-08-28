@@ -1,16 +1,95 @@
-# Altera Chrome Extension Interview
+# Chrome DevTools Recorder
 
-## Problem
-You will be implementing a version of the [Chrome DevTools Recorder](https://developer.chrome.com/docs/devtools/recorder). This is a tool that allows users to record and replay computer actions, such as clicking, typing, etc on Chrome. 
+A Chrome extension that records user interactions and replays them using Python + Playwright.
 
-Your final repo should contain the following 3 components:
-1) A chrome extension that captures user actions on a Chrome browser and allows users to download action traces.
-2) A script that takes in the recorded action trace and replays the same sequence of actions on a browser.
-3) The recorded action trace of the following flow:
-    1. Navigate to https://chatgpt.com
-    2. Engage in a multiround conversation with ChatGPT. Use Search mode for at least one of the queries.
+## Components
 
-## Tips
-The workflow we've asked you to record doesn't necessarily require computer actions beyond clicking and typing, but you are encouraged to implement more involved actions, such as scrolling, click and drag, etc. if you have time.
+1. **Chrome Extension** - Records user actions in the browser
+2. **Python Replay Script** - Replays recorded traces using Playwright
+3. **Demo Traces** - ChatGPT conversation recordings
 
-There are many possible implementations of this problem. The Chrome DevTools recorder uses HTML selectors. Another possible solution is the use of multimodal models or OCR for element detection. Think about the tradeoffs between robustness and generalizability. If you want to explain any part of your implementation, feel free to add a markdown to this repository. 
+## Project Structure
+
+```
+extension-take-home/
+├── README.md              # This file
+├── requirements.txt       # Python dependencies
+├── replay.py             # Python replay script
+├── manifest.json         # Extension manifest
+├── content.js            # Records user actions
+├── background.js         # Manages recordings
+├── popup.html            # Extension UI
+├── popup.js              # UI logic
+└── traces/               # Demo trace files
+```
+
+## Installation
+
+### Chrome Extension
+
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Enable "Developer mode" in the top right
+3. Click "Load unpacked" and select this directory
+4. The extension icon should appear in your toolbar
+
+### Python Requirements
+
+```bash
+pip install -r requirements.txt
+playwright install chromium
+```
+
+## Usage
+
+### Recording
+
+1. Click the extension icon in Chrome
+2. Click "Start" to begin recording
+3. Interact with the current webpage
+4. Click "Stop" to save the trace
+
+Traces are automatically saved to `~/Downloads/traces/`
+
+### Replaying
+
+```bash
+# Basic replay
+python replay.py ~/Downloads/traces/recording-*.json
+
+# Verbose output
+python replay.py -v ~/Downloads/traces/recording-*.json
+
+# Headless mode
+python replay.py --headless ~/Downloads/traces/recording-*.json
+```
+
+## Features
+
+- Records clicks, typing, navigation, scrolling, and drag operations
+- Multiple element detection strategies for robust replay
+- Real-time recording feedback
+- Professional UI design
+- Cross-page navigation support
+
+## ChatGPT Demo
+
+The included demo trace shows:
+- Navigation to chatgpt.com
+- Multi-round conversation
+- Search mode usage
+- Complete interaction flow
+
+---
+
+## Original Assignment
+
+### Problem
+Implementing a version of the [Chrome DevTools Recorder](https://developer.chrome.com/docs/devtools/recorder). 
+
+### Required Components:
+1) Chrome extension that captures user actions and downloads traces
+2) Script that replays recorded traces on a browser
+3) Recorded trace of ChatGPT conversation with Search mode
+
+### Implementation Notes
+Uses HTML selectors for element detection with multiple fallback strategies for robustness. 

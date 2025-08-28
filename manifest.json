@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "DevTools Recorder",
+  "version": "1.0.0",
+  "description": "Record and replay user interactions on web pages",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DevTools Recorder"
+  }
+}
