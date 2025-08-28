@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "createdAt": "2025-08-28T19:17:16.961Z",
-  "startUrl": "https://www.google.com/?zx=1756408620152&no_sw_cr=1",
+  "createdAt": "2025-08-28T19:44:01.560Z",
+  "startUrl": "https://www.google.com/?zx=1756410220512&no_sw_cr=1",
   "startTitle": "Google",
   "metadata": {
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
@@ -11,12 +11,12 @@
     {
       "type": "navigate",
       "timestamp": 0,
-      "url": "https://www.google.com/?zx=1756408620152&no_sw_cr=1",
+      "url": "https://www.google.com/?zx=1756410220512&no_sw_cr=1",
       "title": "Google"
     },
     {
       "type": "hover",
-      "timestamp": 611,
+      "timestamp": 805,
       "selectors": [
         {
           "type": "css",
@@ -39,12 +39,12 @@
           "value": "#APjFqb"
         }
       ],
-      "x": 246,
+      "x": 314,
       "y": 0
     },
     {
       "type": "type",
-      "timestamp": 1421,
+      "timestamp": 1283,
       "selectors": [
         {
           "type": "css",
@@ -67,12 +67,12 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "w",
+      "text": "c",
       "inputType": "textarea"
     },
     {
       "type": "type",
-      "timestamp": 1465,
+      "timestamp": 1423,
       "selectors": [
         {
           "type": "css",
@@ -95,12 +95,12 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "wi",
+      "text": "ch",
       "inputType": "textarea"
     },
     {
       "type": "type",
-      "timestamp": 1681,
+      "timestamp": 1536,
       "selectors": [
         {
           "type": "css",
@@ -123,12 +123,12 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "wik",
+      "text": "cha",
       "inputType": "textarea"
     },
     {
       "type": "type",
-      "timestamp": 1874,
+      "timestamp": 1645,
       "selectors": [
         {
           "type": "css",
@@ -151,12 +151,12 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "wiki",
+      "text": "chat",
       "inputType": "textarea"
     },
     {
       "type": "type",
-      "timestamp": 2480,
+      "timestamp": 2601,
       "selectors": [
         {
           "type": "css",
@@ -179,12 +179,12 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "wikip",
+      "text": "chatg",
       "inputType": "textarea"
     },
     {
       "type": "type",
-      "timestamp": 2618,
+      "timestamp": 2749,
       "selectors": [
         {
           "type": "css",
@@ -207,12 +207,12 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "wikipe",
+      "text": "chatgp",
       "inputType": "textarea"
     },
     {
       "type": "type",
-      "timestamp": 2807,
+      "timestamp": 2837,
       "selectors": [
         {
           "type": "css",
@@ -235,69 +235,18 @@
           "value": "#APjFqb"
         }
       ],
-      "text": "wikiped",
+      "text": "chatgpt",
       "inputType": "textarea"
     },
     {
-      "type": "type",
-      "timestamp": 2941,
-      "selectors": [
+      "type": "submit",
+      "timestamp": 3250,
+      "formSelectors": [
         {
           "type": "css",
-          "value": "#APjFqb"
-        },
-        {
-          "type": "css",
-          "value": "textarea[name=\"q\"]"
-        },
-        {
-          "type": "aria",
-          "value": "Search"
-        },
-        {
-          "type": "css",
-          "value": ".gLFyf"
-        },
-        {
-          "type": "css",
-          "value": "#APjFqb"
+          "value": "html > body > div:nth-of-type(2) > div:nth-of-type(4) > form"
         }
       ],
-      "text": "wikipedi",
-      "inputType": "textarea"
-    },
-    {
-      "type": "type",
-      "timestamp": 3018,
-      "selectors": [
-        {
-          "type": "css",
-          "value": "#APjFqb"
-        },
-        {
-          "type": "css",
-          "value": "textarea[name=\"q\"]"
-        },
-        {
-          "type": "aria",
-          "value": "Search"
-        },
-        {
-          "type": "css",
-          "value": ".gLFyf"
-        },
-        {
-          "type": "css",
-          "value": "#APjFqb"
-        }
-      ],
-      "text": "wikipedia",
-      "inputType": "textarea"
-    },
-    {
-      "type": "keydown",
-      "timestamp": 3206,
-      "key": "Enter",
       "selectors": [
         {
           "type": "css",
@@ -322,156 +271,181 @@
       ]
     },
     {
+      "type": "type",
+      "timestamp": 3305,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "chatgpt",
+      "inputType": "textarea"
+    },
+    {
       "type": "navigate",
-      "timestamp": 1756408627884,
-      "url": "https://www.google.com/search?q=wikipedia&sca_esv=465159d7bf2b0b64&source=hp&ei=K6uwaJnkLp2f0PEPlams6Aw&iflsig=AOw8s4IAAAAAaLC5O1XXQyD6tHtKV_8txjAjULmuNplm&ved=0ahUKEwjZpfL-m66PAxWdDzQIHZUUC80Q4dUDCBA&uact=5&oq=wikipedia&gs_lp=Egdnd3Mtd2l6Igl3aWtpcGVkaWEyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyCBAuGIAEGLEDMggQABiABBixAzIIEAAYgAQYsQMyCxAAGIAEGLEDGIMBMg4QABiABBixAxiDARiKBTIIEAAYgAQYsQNI-g1QAFi8DHAAeACQAQCYATqgAcIDqgEBObgBA8gBAPgBAZgCCaAC3gPCAg4QLhiABBixAxjRAxjHAcICERAuGIAEGLEDGNEDGIMBGMcBwgIIEC4YgAQY1ALCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgIOEC4YgAQYxwEYjgUYrwHCAg0QABiABBixAxhDGIoFwgIHEAAYgAQYCpgDAJIHATmgB7FPsgcBObgH3gPCBwUwLjguMcgHFQ&sclient=gws-wiz",
-      "title": "wikipedia - Google Search"
+      "timestamp": 1756410228512,
+      "url": "https://www.google.com/search?q=chatgpt&sca_esv=921846c6c5ac185b&source=hp&ei=bLGwaIywCraV0PEP3-KsmQw&iflsig=AOw8s4IAAAAAaLC_fH9y7uFw4Wz1WnRgx1Rb86mdqHiQ&ved=0ahUKEwiMloP6oa6PAxW2CjQIHV8xK8MQ4dUDCBA&uact=5&oq=chatgpt&gs_lp=Egdnd3Mtd2l6IgdjaGF0Z3B0Mg0QABiABBixAxhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBixAxiDATIQEAAYgAQYsQMYQxiDARiKBTIIEAAYgAQYsQMyBRAAGIAEMggQABiABBixA0ivD1AAWJIMcAB4AJABAJgBWKAB-gKqAQE3uAEDyAEA-AEBmAIHoAKIA8ICFhAuGIAEGLEDGNEDGEMYgwEYxwEYigXCAhEQLhiABBixAxjRAxiDARjHAcICEBAuGIAEGLEDGEMYgwEYigXCAg4QABiABBixAxiDARiKBZgDAJIHATegB_srsgcBN7gHiAPCBwU0LjIuMcgHCQ&sclient=gws-wiz",
+      "title": "chatgpt - Google Search"
     },
     {
-      "type": "navigate",
-      "timestamp": 1756408629488,
-      "url": "https://www.wikipedia.org/",
-      "title": "Wikipedia"
+      "type": "scroll",
+      "timestamp": 1756410228575,
+      "target": "window",
+      "x": 0,
+      "y": 1006
     },
     {
-      "type": "click",
-      "timestamp": 1756408629880,
+      "type": "hover",
+      "timestamp": 1756410229058,
       "selectors": [
         {
           "type": "css",
-          "value": "#searchInput"
+          "value": ".dnXCYb.CC4Ctb.dhks6d.SgNqxc"
         },
         {
           "type": "css",
-          "value": "input[name=\"search\"]"
-        },
-        {
-          "type": "css",
-          "value": "#searchInput"
-        }
-      ],
-      "x": 147,
-      "y": 24,
-      "button": "left"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756408630083,
-      "selectors": [
-        {
-          "type": "css",
-          "value": "#searchInput"
-        },
-        {
-          "type": "css",
-          "value": "input[name=\"search\"]"
-        },
-        {
-          "type": "css",
-          "value": "#searchInput"
-        }
-      ],
-      "text": "t",
-      "inputType": "search"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756408630167,
-      "selectors": [
-        {
-          "type": "css",
-          "value": "#searchInput"
-        },
-        {
-          "type": "css",
-          "value": "input[name=\"search\"]"
-        },
-        {
-          "type": "css",
-          "value": "#searchInput"
-        }
-      ],
-      "text": "te",
-      "inputType": "search"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756408630265,
-      "selectors": [
-        {
-          "type": "css",
-          "value": "#searchInput"
-        },
-        {
-          "type": "css",
-          "value": "input[name=\"search\"]"
-        },
-        {
-          "type": "css",
-          "value": "#searchInput"
-        }
-      ],
-      "text": "tes",
-      "inputType": "search"
-    },
-    {
-      "type": "type",
-      "timestamp": 1756408630399,
-      "selectors": [
-        {
-          "type": "css",
-          "value": "#searchInput"
-        },
-        {
-          "type": "css",
-          "value": "input[name=\"search\"]"
-        },
-        {
-          "type": "css",
-          "value": "#searchInput"
-        }
-      ],
-      "text": "test",
-      "inputType": "search"
-    },
-    {
-      "type": "keydown",
-      "timestamp": 1756408631452,
-      "key": "Enter",
-      "selectors": [
-        {
-          "type": "css",
-          "value": "#searchInput"
-        },
-        {
-          "type": "css",
-          "value": "input[name=\"search\"]"
-        },
-        {
-          "type": "css",
-          "value": "#searchInput"
-        }
-      ]
-    },
-    {
-      "type": "click",
-      "timestamp": 1756408631453,
-      "selectors": [
-        {
-          "type": "css",
-          "value": ".pure-button.pure-button-primary-progressive"
-        },
-        {
-          "type": "css",
-          "value": "#search-form > fieldset > button"
+          "value": "div > div:nth-of-type(3) > div > div:nth-of-type(2) > div"
         },
         {
           "type": "text",
-          "value": "Search"
+          "value": "Usage Instructions. How do I use ChatGPT?"
         }
       ],
-      "x": 0,
-      "y": 0,
+      "x": 228,
+      "y": 73
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756410229730,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".Vwj14"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > div:nth-of-type(2)"
+        }
+      ],
+      "x": 85,
+      "y": 0
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756410230405,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".Vwj14"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > div:nth-of-type(2)"
+        }
+      ],
+      "x": 96,
+      "y": 78
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756410231164,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".Vwj14"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > div:nth-of-type(2)"
+        }
+      ],
+      "x": 10,
+      "y": 17
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756410231434,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".Vwj14"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > div:nth-of-type(2)"
+        }
+      ],
+      "x": 12,
+      "y": 78
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756410232119,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#searchform"
+        },
+        {
+          "type": "css",
+          "value": ".CvDJxb.YNk70c"
+        },
+        {
+          "type": "css",
+          "value": "#searchform"
+        }
+      ],
+      "x": 242,
+      "y": 52
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756410232432,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".Vwj14"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > div:nth-of-type(2)"
+        }
+      ],
+      "x": 44,
+      "y": 45
+    },
+    {
+      "type": "click",
+      "timestamp": 1756410232579,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".Vwj14"
+        },
+        {
+          "type": "css",
+          "value": "div > div > span > a > div:nth-of-type(2)"
+        }
+      ],
+      "x": 40,
+      "y": 66,
       "button": "left"
     }
   ]

@@ -20,11 +20,12 @@ except ImportError:
 
 
 class TraceReplayer:
-    def __init__(self, trace_path: str, headless: bool = False, verbose: bool = False, stealth: bool = False):
+    def __init__(self, trace_path: str, headless: bool = False, verbose: bool = False, stealth: bool = False, incognito: bool = False):
         self.trace_path = trace_path
         self.headless = headless
         self.verbose = verbose
         self.stealth = stealth
+        self.incognito = incognito
         self.trace = None
         self.page = None
         self.browser = None
@@ -249,23 +250,28 @@ class TraceReplayer:
         # Start Playwright
         with sync_playwright() as p:
             # Launch browser with stealth options
+            launch_args = []
             if self.stealth:
-                self.browser = p.chromium.launch(
-                    headless=self.headless,
-                    args=[
-                        '--disable-blink-features=AutomationControlled',
-                        '--disable-features=VizDisplayCompositor',
-                        '--no-sandbox',
-                        '--disable-setuid-sandbox',
-                        '--disable-dev-shm-usage',
-                        '--disable-accelerated-2d-canvas',
-                        '--no-first-run',
-                        '--no-zygote',
-                        '--disable-gpu'
-                    ]
-                )
-            else:
-                self.browser = p.chromium.launch(headless=self.headless)
+                launch_args.extend([
+                    '--disable-blink-features=AutomationControlled',
+                    '--disable-features=VizDisplayCompositor',
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-accelerated-2d-canvas',
+                    '--no-first-run',
+                    '--no-zygote',
+                    '--disable-gpu'
+                ])
+            
+            # Add incognito mode flag
+            if self.incognito:
+                launch_args.append('--incognito')
+                
+            self.browser = p.chromium.launch(
+                headless=self.headless,
+                args=launch_args if launch_args else None
+            )
 
             # Create context with stealth options
             if self.stealth:
@@ -347,6 +353,7 @@ def main():
     parser.add_argument("--headless", action="store_true", help="Run in headless mode")
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose output")
     parser.add_argument("--stealth", action="store_true", help="Enable stealth mode to avoid bot detection")
+    parser.add_argument("--incognito", action="store_true", help="Run in incognito mode with clean profile")
 
     args = parser.parse_args()
 
@@ -361,7 +368,8 @@ def main():
         trace_path=str(trace_path),
         headless=args.headless,
         verbose=args.verbose,
-        stealth=args.stealth
+        stealth=args.stealth,
+        incognito=args.incognito
     )
 
     try:

@@ -9,6 +9,7 @@ class ActionRecorder {
     this.dragStart = null;
     this.suppressClickUntil = 0;
     this.lastDragSampleAt = 0;
+    this.inputDebounces = new Map(); // element -> { timer, lastEmitTime }
     this.setupMessageListener();
   }
 
@@ -69,6 +70,9 @@ class ActionRecorder {
     document.addEventListener('mousedown', this.handleMouseDown.bind(this), true);
     document.addEventListener('mousemove', this.handleMouseMove.bind(this), true);
     document.addEventListener('mouseup', this.handleMouseUp.bind(this), true);
+    document.addEventListener('change', this.handleChange.bind(this), true);
+    document.addEventListener('submit', this.handleSubmit.bind(this), true);
+    document.addEventListener('blur', this.handleBlur.bind(this), true);
 
     console.log(`Content script: Recording ${resumed ? 'resumed' : 'started'} on ${window.location.href}`);
   }
@@ -89,6 +93,9 @@ class ActionRecorder {
     document.removeEventListener('mousedown', this.handleMouseDown.bind(this), true);
     document.removeEventListener('mousemove', this.handleMouseMove.bind(this), true);
     document.removeEventListener('mouseup', this.handleMouseUp.bind(this), true);
+    document.removeEventListener('change', this.handleChange.bind(this), true);
+    document.removeEventListener('submit', this.handleSubmit.bind(this), true);
+    document.removeEventListener('blur', this.handleBlur.bind(this), true);
     
     // Clear any pending hover timer
     if (this.hoverTimer) {
@@ -96,6 +103,14 @@ class ActionRecorder {
       this.hoverTimer = null;
     }
     this.hoverCandidate = null;
+    
+    // Clear any pending input debounce timers
+    this.inputDebounces.forEach(debounce => {
+      if (debounce.timer) {
+        clearTimeout(debounce.timer);
+      }
+    });
+    this.inputDebounces.clear();
 
     console.log('Content script: Recording stopped');
   }
@@ -290,35 +305,118 @@ class ActionRecorder {
     });
   }
 
+  isTextInput(element) {
+    return element && (
+      (element instanceof HTMLInputElement && 
+        ['text', 'search', 'email', 'url', 'tel', 'number'].includes(element.type || 'text')) ||
+      element instanceof HTMLTextAreaElement ||
+      (element instanceof HTMLElement && element.isContentEditable)
+    );
+  }
+
+  emitTypeForElement(element, options = {}) {
+    if (!this.isTextInput(element)) return;
+    
+    // Skip password fields for security
+    if (element instanceof HTMLInputElement && element.type === 'password') return;
+
+    const value = element instanceof HTMLElement && element.isContentEditable
+      ? element.textContent
+      : element.value;
+
+    const step = {
+      type: 'type',
+      selectors: this.generateSelectors(element),
+      text: String(value || ''),
+      inputType: element.type || 'text'
+    };
+
+    if (options.submit) {
+      step.submit = true;
+    }
+
+    this.recordEvent(step);
+  }
+
   handleInput(event) {
     const target = event.target;
-
+    
+    if (!this.isTextInput(target)) return;
+    
     // Skip password fields for security
-    if (target.type === 'password') return;
+    if (target instanceof HTMLInputElement && target.type === 'password') return;
 
-    this.recordEvent({
-      type: 'type',
-      selectors: this.generateSelectors(target),
-      text: target.value,
-      inputType: target.type || 'text'
-    });
+    const now = this.getTimestamp();
+    const debounceEntry = this.inputDebounces.get(target) || { timer: null, lastEmitTime: -Infinity };
+
+    // Emit immediately if enough time has passed (33ms debounce like reference)
+    if (now - debounceEntry.lastEmitTime >= 33) {
+      debounceEntry.lastEmitTime = now;
+      if (debounceEntry.timer) {
+        clearTimeout(debounceEntry.timer);
+        debounceEntry.timer = null;
+      }
+      this.emitTypeForElement(target);
+    } else if (!debounceEntry.timer) {
+      // Schedule delayed emit
+      const waitTime = 33 - (now - debounceEntry.lastEmitTime);
+      debounceEntry.timer = setTimeout(() => {
+        debounceEntry.timer = null;
+        debounceEntry.lastEmitTime = this.getTimestamp();
+        this.emitTypeForElement(target);
+      }, waitTime);
+    }
+
+    this.inputDebounces.set(target, debounceEntry);
   }
 
   handleKeydown(event) {
-    // Only record special keys
-    const specialKeys = ['Enter', 'Tab', 'Escape'];
+    const key = event.key;
 
-    if (specialKeys.includes(event.key)) {
+    // Handle Enter key in form contexts
+    if (key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      const target = event.target;
+      
+      // Check if this is a form submission trigger
+      if (this.isTextInput(target)) {
+        // Flush any pending debounced input first
+        const debounceEntry = this.inputDebounces.get(target);
+        if (debounceEntry?.timer) {
+          clearTimeout(debounceEntry.timer);
+          debounceEntry.timer = null;
+        }
+        this.inputDebounces.delete(target);
+        
+        // Find the form context
+        const form = target.form || target.closest('form');
+        if (form) {
+          // Record form submission
+          this.recordEvent({
+            type: 'submit',
+            formSelectors: this.generateSelectors(form),
+            selectors: this.generateSelectors(target)
+          });
+        } else {
+          // No form context, record as type with submit flag
+          this.emitTypeForElement(target, { submit: true });
+        }
+        return; // Don't also record as keydown
+      }
+    }
+
+    // Record other special keys
+    const specialKeys = ['Enter', 'Tab', 'Escape'];
+    if (specialKeys.includes(key)) {
       this.recordEvent({
         type: 'keydown',
-        key: event.key,
+        key: key,
         selectors: this.generateSelectors(event.target)
       });
     }
 
     // Suppress scroll recording for navigation keys that cause automatic scrolling
     const scrollKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Space', 'Spacebar']);
-    if (scrollKeys.has(event.key)) {
+    if (scrollKeys.has(key)) {
       this.suppressScrollUntil = Date.now() + 400; // Suppress for 400ms
     }
   }
@@ -632,6 +730,66 @@ class ActionRecorder {
     // Reset drag tracking
     this.dragStart = null;
     this.lastDragSampleAt = 0;
+  }
+
+  handleChange(event) {
+    if (!this.isRecording) return;
+    
+    const target = event.target;
+    
+    // Handle select elements (single and multiple selection)
+    if (target instanceof HTMLSelectElement) {
+      const values = Array.from(target.selectedOptions).map(option => option.value);
+      this.recordEvent({
+        type: 'select',
+        selectors: this.generateSelectors(target),
+        value: target.multiple ? values : (values[0] || '')
+      });
+      return;
+    }
+    
+    // Handle checkbox and radio button changes
+    if (target instanceof HTMLInputElement && 
+        (target.type === 'checkbox' || target.type === 'radio')) {
+      this.recordEvent({
+        type: 'change',
+        selectors: this.generateSelectors(target),
+        value: target.checked,
+        inputType: target.type
+      });
+      return;
+    }
+  }
+
+  handleSubmit(event) {
+    if (!this.isRecording) return;
+    
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    
+    // Record form submission with submitter info if available
+    const submitter = event.submitter && form.contains(event.submitter) ? event.submitter : null;
+    
+    const step = {
+      type: 'submit',
+      formSelectors: this.generateSelectors(form)
+    };
+    
+    if (submitter) {
+      step.submitterSelectors = this.generateSelectors(submitter);
+    }
+    
+    this.recordEvent(step);
+  }
+
+  handleBlur(event) {
+    if (!this.isRecording) return;
+    
+    const target = event.target;
+    if (!this.isTextInput(target)) return;
+    
+    // Flush any pending input when element loses focus
+    this.emitTypeForElement(target);
   }
 }
 
