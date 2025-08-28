@@ -10,6 +10,7 @@ class ActionRecorder {
     this.suppressClickUntil = 0;
     this.lastDragSampleAt = 0;
     this.inputDebounces = new Map(); // element -> { timer, lastEmitTime }
+    this.isComposing = false; // Track IME composition state
     this.setupMessageListener();
   }
 
@@ -73,6 +74,10 @@ class ActionRecorder {
     document.addEventListener('change', this.handleChange.bind(this), true);
     document.addEventListener('submit', this.handleSubmit.bind(this), true);
     document.addEventListener('blur', this.handleBlur.bind(this), true);
+    document.addEventListener('keyup', this.handleKeyUp.bind(this), true);
+    document.addEventListener('keypress', this.handleKeyPress.bind(this), true);
+    document.addEventListener('compositionstart', this.handleCompositionStart.bind(this), true);
+    document.addEventListener('compositionend', this.handleCompositionEnd.bind(this), true);
 
     console.log(`Content script: Recording ${resumed ? 'resumed' : 'started'} on ${window.location.href}`);
   }
@@ -96,6 +101,10 @@ class ActionRecorder {
     document.removeEventListener('change', this.handleChange.bind(this), true);
     document.removeEventListener('submit', this.handleSubmit.bind(this), true);
     document.removeEventListener('blur', this.handleBlur.bind(this), true);
+    document.removeEventListener('keyup', this.handleKeyUp.bind(this), true);
+    document.removeEventListener('keypress', this.handleKeyPress.bind(this), true);
+    document.removeEventListener('compositionstart', this.handleCompositionStart.bind(this), true);
+    document.removeEventListener('compositionend', this.handleCompositionEnd.bind(this), true);
     
     // Clear any pending hover timer
     if (this.hoverTimer) {
@@ -370,13 +379,23 @@ class ActionRecorder {
     this.inputDebounces.set(target, debounceEntry);
   }
 
-  handleKeydown(event) {
-    const key = event.key;
+  getModifiers(event) {
+    const modifiers = [];
+    if (event.altKey) modifiers.push('Alt');
+    if (event.ctrlKey) modifiers.push('Control');
+    if (event.metaKey) modifiers.push('Meta');
+    if (event.shiftKey) modifiers.push('Shift');
+    return modifiers;
+  }
 
-    // Handle Enter key in form contexts
+  handleKeydown(event) {
+    if (!this.isRecording) return;
+    
+    const key = event.key;
+    const target = event.target;
+
+    // Handle Enter key in form contexts first
     if (key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.metaKey && !event.altKey) {
-      const target = event.target;
-      
       // Check if this is a form submission trigger
       if (this.isTextInput(target)) {
         // Flush any pending debounced input first
@@ -404,13 +423,19 @@ class ActionRecorder {
       }
     }
 
-    // Record other special keys
-    const specialKeys = ['Enter', 'Tab', 'Escape'];
-    if (specialKeys.includes(key)) {
+    // Skip recording key events if we're in text input and composing
+    if (this.isTextInput(target) && key === 'Enter') return;
+
+    // Record key events for non-text inputs or special keys
+    if (!this.isTextInput(target) || this.isSpecialKey(key)) {
+      const modifiers = this.getModifiers(event);
+      
       this.recordEvent({
-        type: 'keydown',
+        type: 'key',
         key: key,
-        selectors: this.generateSelectors(event.target)
+        action: 'down',
+        modifiers: modifiers,
+        selectors: this.generateSelectors(target)
       });
     }
 
@@ -419,6 +444,16 @@ class ActionRecorder {
     if (scrollKeys.has(key)) {
       this.suppressScrollUntil = Date.now() + 400; // Suppress for 400ms
     }
+  }
+
+  isSpecialKey(key) {
+    const specialKeys = new Set([
+      'Enter', 'Tab', 'Escape', 'Backspace', 'Delete',
+      'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+      'PageUp', 'PageDown', 'Home', 'End',
+      'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
+    ]);
+    return specialKeys.has(key);
   }
 
   getNearestClickableElement(element) {
@@ -790,6 +825,76 @@ class ActionRecorder {
     
     // Flush any pending input when element loses focus
     this.emitTypeForElement(target);
+  }
+
+  handleKeyUp(event) {
+    if (!this.isRecording) return;
+
+    const key = event.key;
+    const target = event.target;
+
+    // Skip if we're in text input (handled by input events)
+    if (this.isTextInput(target) && !this.isSpecialKey(key)) return;
+
+    // Record key up for special keys or non-text inputs
+    if (!this.isTextInput(target) || this.isSpecialKey(key)) {
+      const modifiers = this.getModifiers(event);
+      
+      this.recordEvent({
+        type: 'key',
+        key: key,
+        action: 'up',
+        modifiers: modifiers,
+        selectors: this.generateSelectors(target)
+      });
+    }
+  }
+
+  handleKeyPress(event) {
+    if (!this.isRecording) return;
+
+    const key = event.key;
+    const target = event.target;
+
+    // Skip if we're in text input (handled by input events) 
+    if (this.isTextInput(target)) return;
+
+    // Record key press for non-text inputs only
+    const modifiers = this.getModifiers(event);
+    
+    this.recordEvent({
+      type: 'key',
+      key: key,
+      action: 'press',
+      modifiers: modifiers,
+      selectors: this.generateSelectors(target)
+    });
+  }
+
+  handleCompositionStart(event) {
+    if (!this.isRecording) return;
+    
+    this.isComposing = true;
+    
+    this.recordEvent({
+      type: 'composition',
+      action: 'start',
+      data: event.data || '',
+      selectors: this.generateSelectors(event.target)
+    });
+  }
+
+  handleCompositionEnd(event) {
+    if (!this.isRecording) return;
+    
+    this.isComposing = false;
+    
+    this.recordEvent({
+      type: 'composition',
+      action: 'end',
+      data: event.data || '',
+      selectors: this.generateSelectors(event.target)
+    });
   }
 }
 
