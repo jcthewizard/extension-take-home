@@ -1,0 +1,889 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-08-28T20:09:41.278Z",
+  "startUrl": "https://www.google.com/?zx=1756411769032&no_sw_cr=1",
+  "startTitle": "Google",
+  "metadata": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "extension": "DevTools Recorder v1.0"
+  },
+  "steps": [
+    {
+      "type": "navigate",
+      "timestamp": 0,
+      "url": "https://www.google.com/?zx=1756411769032&no_sw_cr=1",
+      "title": "Google"
+    },
+    {
+      "type": "hover",
+      "timestamp": 735,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "x": 280,
+      "y": 3
+    },
+    {
+      "type": "type",
+      "timestamp": 1089,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "c",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1245,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "ch",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1377,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "cha",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1490,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "chat",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1766,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "chatg",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1904,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "chatgp",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1978,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "chatgpt",
+      "inputType": "textarea"
+    },
+    {
+      "type": "submit",
+      "timestamp": 2246,
+      "formSelectors": [
+        {
+          "type": "css",
+          "value": "html > body > div:nth-of-type(2) > div:nth-of-type(4) > form"
+        }
+      ],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 2314,
+      "key": "Enter",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ]
+    },
+    {
+      "type": "type",
+      "timestamp": 2317,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"q\"]"
+        },
+        {
+          "type": "aria",
+          "value": "Search"
+        },
+        {
+          "type": "css",
+          "value": ".gLFyf"
+        },
+        {
+          "type": "css",
+          "value": "#APjFqb"
+        }
+      ],
+      "text": "chatgpt",
+      "inputType": "textarea"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756411776177,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411776279,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "textarea[name=\"prompt-textarea\"]"
+        },
+        {
+          "type": "css",
+          "value": "._fallbackTextarea_ebv8s_2"
+        },
+        {
+          "type": "css",
+          "value": "textarea[name=\"prompt-textarea\"]"
+        }
+      ],
+      "text": "",
+      "inputType": "textarea"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411776781,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ],
+      "text": "",
+      "inputType": "text"
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756411776798,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "._prosemirror-parent_ebv8s_2.text-token-text-primary.max-h-[max(35svh,5rem)].max-h-52.flex-1.overflow-auto.[scrollbar-width:thin].default-browser.vertical-scroll-fade-mask"
+        },
+        {
+          "type": "css",
+          "value": "form > div:nth-of-type(2) > div > div:nth-of-type(1) > div"
+        }
+      ],
+      "x": 280,
+      "y": 0
+    },
+    {
+      "type": "click",
+      "timestamp": 1756411776862,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "._prosemirror-parent_ebv8s_2.text-token-text-primary.max-h-[max(35svh,5rem)].max-h-52.flex-1.overflow-auto.[scrollbar-width:thin].default-browser.vertical-scroll-fade-mask"
+        },
+        {
+          "type": "css",
+          "value": "form > div:nth-of-type(2) > div > div:nth-of-type(1) > div"
+        }
+      ],
+      "x": 272,
+      "y": 12,
+      "button": "left"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411777049,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "t"
+        }
+      ],
+      "text": "t",
+      "inputType": "text"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411777116,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "te"
+        }
+      ],
+      "text": "te",
+      "inputType": "text"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756411777169,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411777201,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "tes"
+        }
+      ],
+      "text": "tes",
+      "inputType": "text"
+    },
+    {
+      "type": "navigate",
+      "timestamp": 1756411777217,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411777235,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "tes"
+        }
+      ],
+      "text": "tes",
+      "inputType": "text"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411777291,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "test"
+        }
+      ],
+      "text": "test",
+      "inputType": "text"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411777326,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "test"
+        }
+      ],
+      "text": "test",
+      "inputType": "text"
+    },
+    {
+      "type": "submit",
+      "timestamp": 1756411777468,
+      "formSelectors": [
+        {
+          "type": "css",
+          "value": ".group/composer.w-full"
+        },
+        {
+          "type": "css",
+          "value": "#thread-bottom > div > div > div:nth-of-type(2) > form"
+        }
+      ],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "test"
+        }
+      ]
+    },
+    {
+      "type": "submit",
+      "timestamp": 1756411777468,
+      "formSelectors": [
+        {
+          "type": "css",
+          "value": ".group/composer.w-full"
+        },
+        {
+          "type": "css",
+          "value": "#thread-bottom > div > div > div:nth-of-type(2) > form"
+        }
+      ],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "test"
+        }
+      ]
+    },
+    {
+      "type": "submit",
+      "timestamp": 1756411777468,
+      "formSelectors": [
+        {
+          "type": "css",
+          "value": ".group/composer.w-full"
+        },
+        {
+          "type": "css",
+          "value": "#thread-bottom > div > div > div:nth-of-type(2) > form"
+        }
+      ],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "text",
+          "value": "test"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 1756411777553,
+      "key": "Enter",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 1756411777553,
+      "key": "Enter",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "timestamp": 1756411777553,
+      "key": "Enter",
+      "action": "up",
+      "modifiers": [],
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ]
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756411777717,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".relative.flex.basis-auto.flex-col.-mb-(--composer-overlap-px).[--composer-overlap-px:55px].grow.overflow-hidden"
+        },
+        {
+          "type": "css",
+          "value": "#thread > div > div:nth-of-type(1)"
+        }
+      ],
+      "x": 664,
+      "y": 372
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756411778030,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".flex.h-full.flex-col.overflow-y-auto.[scrollbar-gutter:stable_both-edges].@[84rem]/thread:pt-(--header-height)"
+        },
+        {
+          "type": "css",
+          "value": "#thread > div > div:nth-of-type(1) > div > div"
+        },
+        {
+          "type": "text",
+          "value": "You said:testChatGPT said:"
+        }
+      ],
+      "x": 664,
+      "y": 372
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756411778319,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".@thread-xl/thread:pt-header-height.flex.flex-col.text-sm.pb-25"
+        },
+        {
+          "type": "css",
+          "value": "div > div:nth-of-type(1) > div > div > div:nth-of-type(2)"
+        },
+        {
+          "type": "text",
+          "value": "You said:testChatGPT said:Test received! How can I help you today?"
+        }
+      ],
+      "x": 776,
+      "y": 258
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756411778669,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "[data-testid=\"conversation-turn-2\"]"
+        },
+        {
+          "type": "xpath",
+          "value": "//*[@data-testid=\"conversation-turn-2\"]"
+        },
+        {
+          "type": "css",
+          "value": ".text-token-text-primary.w-full.focus:outline-none.scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]"
+        },
+        {
+          "type": "css",
+          "value": "[data-testid=\"conversation-turn-2\"]"
+        },
+        {
+          "type": "text",
+          "value": "ChatGPT said:Test received! How can I help you today?"
+        }
+      ],
+      "x": 996,
+      "y": 105
+    },
+    {
+      "type": "hover",
+      "timestamp": 1756411779810,
+      "selectors": [
+        {
+          "type": "css",
+          "value": ".flex.h-full.flex-col.overflow-y-auto.[scrollbar-gutter:stable_both-edges].@[84rem]/thread:pt-(--header-height)"
+        },
+        {
+          "type": "css",
+          "value": "#thread > div > div:nth-of-type(1) > div > div"
+        },
+        {
+          "type": "text",
+          "value": "You said:testChatGPT said:Test received! How can I help you today?"
+        }
+      ],
+      "x": 1158,
+      "y": 48
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411780713,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ],
+      "text": "",
+      "inputType": "text"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411780713,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ],
+      "text": "",
+      "inputType": "text"
+    },
+    {
+      "type": "type",
+      "timestamp": 1756411780713,
+      "selectors": [
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        },
+        {
+          "type": "css",
+          "value": ".ProseMirror.ProseMirror-focused"
+        },
+        {
+          "type": "css",
+          "value": "#prompt-textarea"
+        }
+      ],
+      "text": "",
+      "inputType": "text"
+    }
+  ]
+}

@@ -87,6 +87,17 @@ class RecordingManager {
           sendResponse({ success: true });
           break;
 
+        case 'START_REPLAY':
+          const replayResult = await this.startReplay(message.trace, sender);
+          sendResponse(replayResult);
+          break;
+
+        case 'REPLAY_COMPLETE':
+        case 'REPLAY_ERROR':
+          // Forward replay status to popup
+          this.forwardToPopup(message);
+          break;
+
         default:
           sendResponse({ success: false, error: 'Unknown message type' });
       }
@@ -207,6 +218,45 @@ class RecordingManager {
           resolve({ downloadId, filename });
         }
       });
+    });
+  }
+
+  async startReplay(trace, sender) {
+    if (!trace || !trace.steps) {
+      return { success: false, error: 'Invalid trace format' };
+    }
+
+    try {
+      // Get current active tab
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+      if (!tab || !tab.url) {
+        return { success: false, error: 'No active tab found' };
+      }
+
+      if (tab.url.startsWith('chrome://') || tab.url.startsWith('chrome-extension://')) {
+        return { success: false, error: 'Cannot replay on browser internal pages' };
+      }
+
+      // Send trace to content script for replay
+      await chrome.tabs.sendMessage(tab.id, { 
+        type: 'START_REPLAY', 
+        trace: trace 
+      });
+
+      console.log(`Replay started on tab: ${tab.url} (${trace.steps.length} steps)`);
+      return { success: true };
+
+    } catch (error) {
+      console.error('Error starting replay:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  forwardToPopup(message) {
+    // Try to send message to popup if it's open
+    chrome.runtime.sendMessage(message).catch(() => {
+      // Popup might be closed, which is fine
     });
   }
 }

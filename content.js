@@ -898,7 +898,356 @@ class ActionRecorder {
   }
 }
 
-// Initialize recorder when script loads
+// Integrate replayer functionality
+class ActionReplayer {
+  constructor() {
+    this.isReplaying = false;
+    this.inputGuard = {
+      isActive: false,
+      blockedKeys: new Set(['Tab', 'Enter', 'Escape', 'Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'])
+    };
+  }
+
+  activateInputGuard() {
+    this.inputGuard.isActive = true;
+    
+    const guardHandler = (e) => {
+      if (this.inputGuard.isActive) {
+        if (this.inputGuard.blockedKeys.has(e.code) || 
+            this.inputGuard.blockedKeys.has(e.key) ||
+            e.ctrlKey || e.metaKey || e.altKey) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', guardHandler, true);
+    document.addEventListener('keyup', guardHandler, true);
+    document.addEventListener('keypress', guardHandler, true);
+  }
+
+  deactivateInputGuard() {
+    this.inputGuard.isActive = false;
+  }
+
+  getAllDocumentRoots() {
+    const roots = [document];
+    
+    const addShadowRoots = (element) => {
+      if (element.shadowRoot) {
+        roots.push(element.shadowRoot);
+        element.shadowRoot.querySelectorAll('*').forEach(addShadowRoots);
+      }
+      element.querySelectorAll('*').forEach(addShadowRoots);
+    };
+    
+    addShadowRoots(document.body || document.documentElement);
+    return roots;
+  }
+
+  async findElement(selectors, timeout = 3000) {
+    const startTime = Date.now();
+    
+    while (Date.now() - startTime < timeout) {
+      const roots = this.getAllDocumentRoots();
+      
+      for (const selector of selectors) {
+        for (const root of roots) {
+          let element = null;
+          
+          try {
+            switch (selector.type) {
+              case 'css':
+                element = root.querySelector?.(selector.value);
+                break;
+              case 'xpath':
+                if (root === document) {
+                  const result = document.evaluate(selector.value, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+                  element = result.singleNodeValue;
+                }
+                break;
+              case 'text':
+                const walker = document.createTreeWalker(
+                  root,
+                  NodeFilter.SHOW_ELEMENT,
+                  null,
+                  false
+                );
+                
+                let node;
+                while (node = walker.nextNode()) {
+                  if (node.textContent?.trim() === selector.value) {
+                    element = node;
+                    break;
+                  }
+                }
+                break;
+            }
+            
+            if (element && this.isElementVisible(element)) {
+              return element;
+            }
+          } catch (e) {
+            console.warn('[ActionReplayer] Error with selector:', selector, e);
+          }
+        }
+      }
+      
+      await this.sleep(50);
+    }
+    
+    return null;
+  }
+
+  isElementVisible(element) {
+    if (!element || !element.offsetParent) return false;
+    
+    const rect = element.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  }
+
+  async scrollToElement(element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'center', 
+      inline: 'center' 
+    });
+    await this.sleep(300);
+  }
+
+  async simulateClick(element, x = 0, y = 0) {
+    await this.scrollToElement(element);
+    
+    const rect = element.getBoundingClientRect();
+    const clientX = rect.left + x;
+    const clientY = rect.top + y;
+    
+    const events = [
+      new MouseEvent('mousedown', { bubbles: true, cancelable: true, clientX, clientY }),
+      new MouseEvent('mouseup', { bubbles: true, cancelable: true, clientX, clientY }),
+      new MouseEvent('click', { bubbles: true, cancelable: true, clientX, clientY })
+    ];
+    
+    for (const event of events) {
+      element.dispatchEvent(event);
+      await this.sleep(50);
+    }
+  }
+
+  async simulateHover(element, x = 0, y = 0) {
+    await this.scrollToElement(element);
+    
+    const rect = element.getBoundingClientRect();
+    const clientX = rect.left + x;
+    const clientY = rect.top + y;
+    
+    const event = new MouseEvent('mouseover', {
+      bubbles: true,
+      cancelable: true,
+      clientX,
+      clientY
+    });
+    
+    element.dispatchEvent(event);
+    await this.sleep(100);
+  }
+
+  async simulateType(element, text) {
+    await this.scrollToElement(element);
+    element.focus();
+    
+    // For incremental typing, append to existing value
+    if (element.value && text.startsWith(element.value)) {
+      element.value = text;
+    } else {
+      element.value = text;
+    }
+    
+    const events = [
+      new Event('input', { bubbles: true }),
+      new Event('change', { bubbles: true })
+    ];
+    
+    for (const event of events) {
+      element.dispatchEvent(event);
+    }
+    
+    // Minimal delay for typing events
+    await this.sleep(10);
+  }
+
+  async simulateKeyPress(key, modifiers = {}) {
+    const keydownEvent = new KeyboardEvent('keydown', {
+      key,
+      code: key,
+      bubbles: true,
+      cancelable: true,
+      ...modifiers
+    });
+    
+    const keyupEvent = new KeyboardEvent('keyup', {
+      key,
+      code: key,
+      bubbles: true,
+      cancelable: true,
+      ...modifiers
+    });
+    
+    document.activeElement?.dispatchEvent(keydownEvent);
+    await this.sleep(50);
+    document.activeElement?.dispatchEvent(keyupEvent);
+    await this.sleep(50);
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async replay(trace) {
+    if (this.isReplaying) {
+      console.warn('[ActionReplayer] Already replaying');
+      return;
+    }
+
+    this.isReplaying = true;
+    this.activateInputGuard();
+    
+    console.log(`[ActionReplayer] Starting replay of ${trace.steps.length} steps`);
+    
+    try {
+      let lastTimestamp = trace.steps[0]?.timestamp || 0;
+      
+      for (let i = 0; i < trace.steps.length; i++) {
+        const step = trace.steps[i];
+        
+        console.log(`[ActionReplayer] Step ${i + 1}/${trace.steps.length}: ${step.type}`);
+        
+        // Optimized timing delays
+        const timeSinceLastStep = step.timestamp - lastTimestamp;
+        let delay;
+        
+        // Fast typing for consecutive type events
+        if (step.type === 'type' && i > 0 && trace.steps[i-1].type === 'type') {
+          delay = Math.min(Math.max(timeSinceLastStep, 50), 200);
+        } else {
+          delay = Math.min(Math.max(timeSinceLastStep, 100), 1000);
+        }
+        
+        await this.sleep(delay);
+        
+        // Find element if needed
+        let element = null;
+        if (step.selectors) {
+          element = await this.findElement(step.selectors);
+          if (!element) {
+            console.warn(`[ActionReplayer] Could not find element for step ${i + 1}`);
+            continue;
+          }
+        }
+        
+        // Execute action
+        switch (step.type) {
+          case 'navigate':
+            if (step.url) {
+              const currentUrl = window.location.href;
+              const targetUrl = step.url;
+              
+              // Check if we need to navigate (compare base URLs, ignoring fragments/query params)
+              const currentBase = currentUrl.split('#')[0].split('?')[0];
+              const targetBase = targetUrl.split('#')[0].split('?')[0];
+              
+              if (currentBase !== targetBase) {
+                console.log(`[ActionReplayer] Navigation needed: ${currentUrl} → ${targetUrl}`);
+                window.location.href = targetUrl;
+                return; // Stop replay as page will reload
+              } else {
+                console.log(`[ActionReplayer] Navigation skipped - already on target page: ${currentUrl}`);
+              }
+            }
+            break;
+            
+          case 'click':
+            await this.simulateClick(element, step.x || 0, step.y || 0);
+            break;
+            
+          case 'hover':
+            await this.simulateHover(element, step.x || 0, step.y || 0);
+            break;
+            
+          case 'type':
+            await this.simulateType(element, step.text || '');
+            break;
+            
+          case 'keydown':
+          case 'keyup':
+            await this.simulateKeyPress(step.key, {
+              ctrlKey: step.ctrlKey,
+              shiftKey: step.shiftKey,
+              altKey: step.altKey,
+              metaKey: step.metaKey
+            });
+            break;
+            
+          case 'scroll':
+            window.scrollTo({ 
+              left: step.x || 0, 
+              top: step.y || 0, 
+              behavior: 'smooth' 
+            });
+            await this.sleep(200);
+            break;
+            
+          case 'change':
+            if (element) {
+              await this.simulateType(element, step.value || '');
+            }
+            break;
+            
+          case 'submit':
+            if (element && element.tagName === 'FORM') {
+              element.submit();
+            } else if (element) {
+              element.click();
+            }
+            await this.sleep(500);
+            break;
+            
+          default:
+            console.warn(`[ActionReplayer] Unknown action type: ${step.type}`);
+            break;
+        }
+        
+        lastTimestamp = step.timestamp;
+      }
+      
+      console.log('[ActionReplayer] Replay completed successfully');
+      chrome.runtime.sendMessage({ type: 'REPLAY_COMPLETE' });
+      
+    } catch (error) {
+      console.error('[ActionReplayer] Replay failed:', error);
+      chrome.runtime.sendMessage({ type: 'REPLAY_ERROR', error: error.message });
+    } finally {
+      this.isReplaying = false;
+      this.deactivateInputGuard();
+    }
+  }
+}
+
+// Initialize recorder and replayer when script loads
 if (!window.actionRecorder) {
   window.actionRecorder = new ActionRecorder();
 }
+
+if (!window.actionReplayer) {
+  window.actionReplayer = new ActionReplayer();
+}
+
+// Listen for replay messages
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'START_REPLAY' && window.actionReplayer) {
+    window.actionReplayer.replay(message.trace);
+    sendResponse({ success: true });
+  }
+});

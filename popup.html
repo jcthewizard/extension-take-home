@@ -108,6 +108,61 @@
         .message.visible {
             display: block;
         }
+
+        .section {
+            border-top: 1px solid #e5e5e7;
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .file-input {
+            margin-bottom: 12px;
+        }
+
+        .file-input input[type="file"] {
+            display: none;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #f5f5f7;
+            border: 1px solid #d2d2d7;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .file-input-label:hover {
+            background: #e8e8ed;
+        }
+
+        .file-name {
+            font-size: 11px;
+            color: #86868b;
+            margin-top: 4px;
+            text-align: center;
+            word-break: break-all;
+        }
+
+        .btn-replay {
+            background: #34C759;
+            color: white;
+        }
+
+        .status.replaying {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
     </style>
 </head>
 <body>
@@ -129,6 +184,24 @@
 
     <div class="info">
         Click Start to begin recording interactions on the current page.
+    </div>
+
+    <div class="section">
+        <div class="section-title">Replay Trace</div>
+        
+        <div class="file-input">
+            <input type="file" id="traceFile" accept=".json">
+            <label for="traceFile" class="file-input-label">
+                Choose trace file (.json)
+            </label>
+            <div id="fileName" class="file-name"></div>
+        </div>
+
+        <button id="replayBtn" class="btn btn-replay" disabled>Start Replay</button>
+        
+        <div class="info">
+            Select a trace file to replay user interactions.
+        </div>
     </div>
 
     <script src="popup.js"></script>
