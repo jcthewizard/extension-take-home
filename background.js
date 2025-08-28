@@ -58,7 +58,7 @@ class RecordingManager {
     try {
       // Get current active tab
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      
+
       if (!tab || !tab.url) {
         return { success: false, error: 'No active tab found' };
       }
@@ -76,9 +76,12 @@ class RecordingManager {
         startTime: Date.now()
       };
 
+      // Tell content script to start recording
+      await chrome.tabs.sendMessage(tab.id, { type: 'START_RECORDING' });
+
       console.log('Recording started on tab:', tab.url);
       return { success: true };
-      
+
     } catch (error) {
       console.error('Error starting recording:', error);
       return { success: false, error: error.message };
@@ -91,24 +94,29 @@ class RecordingManager {
     }
 
     try {
+      // Tell content script to stop recording
+      if (this.currentSession?.tabId) {
+        await chrome.tabs.sendMessage(this.currentSession.tabId, { type: 'STOP_RECORDING' }).catch(() => {});
+      }
+
       const trace = this.createTrace();
       const downloadResult = await this.downloadTrace(trace);
-      
+
       const eventCount = this.recordedEvents.length;
-      
+
       // Reset state
       this.isRecording = false;
       this.currentSession = null;
       this.recordedEvents = [];
-      
+
       console.log(`Recording stopped. Captured ${eventCount} events.`);
-      
+
       return {
         success: true,
         eventCount: eventCount,
         filename: downloadResult.filename
       };
-      
+
     } catch (error) {
       console.error('Error stopping recording:', error);
       return { success: false, error: error.message };
@@ -117,7 +125,7 @@ class RecordingManager {
 
   createTrace() {
     const now = new Date().toISOString();
-    
+
     return {
       version: '1.0',
       createdAt: now,
